@@ -8,20 +8,27 @@
     <title>HYF Homework Week 2</title>
     <link rel="stylesheet" href="style.css">
     <script>
-// Initialize and add the map
-function initMap() {
-  // The location of odense
-  var odense = {lat: 55.401, lng: 10.386};
-  // The map, centered at odense
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 12, center: odense});
-  // The marker, positioned at odense
-  var marker = new google.maps.Marker({position: odense, map: map});
-}
+        // Initialize and add the map
+        function initMap() {
+            // The location of odense
+            var odense = {
+                lat: 55.401,
+                lng: 10.386
+            };
+            // The map, centered at odense
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                    zoom: 12,
+                    center: odense
+                });
+            // The marker, positioned at odense
+            var marker = new google.maps.Marker({
+                position: odense,
+                map: map
+            });
+        }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN-2Iwg2onSpFyop0w00q-WI5bTu8z-VM&callback=initMap">
-    </script>
+
 </head>
 
 <body>
@@ -40,67 +47,109 @@ function initMap() {
         </nav>
         <main>
             <article>
-                    <img src="media/ny-stock-exchange.jpg" alt="New York City Stock Exchange">
+                <img src="media/ny-stock-exchange.jpg" alt="New York City Stock Exchange">
             </article>
-     
-                <ul class="main-item-l">
-                    <li><h4>Web Develoment as Industry</h4></li>
-                    <li>
-                        <p>Examples of dramatic transformation in communication and commerce led by web development includes e-commerce. Online auction sites such as eBay have changed the way consumer find and purchase goods and services. Online retailers such as Amazon.com and Buy.com (among many others) have transformed the shopping and bargain-hunting experience for many consumers.</p>
-                    </li>
-                </ul>
-                <ul class="main-item-r">
-                    <li><h2>Practical web development</h2></li>
-                    <li>
-                        <p>Since the commercialization of the web, web development has been a growing industry. The growth of this industry is being driven by businesses wishing to use their website to sell products and services to customers.[1]</p><br>
-                         <p>There is open source software for web development like BerkeleyDB, GlassFish, LAMP (Linux, Apache, MySQL, PHP) stack, and Perl/Plack. This has kept the cost of learning web development to a minimum. Another contributing factor to the growth of the industry has been the rise of easy-to-use WYSIWYG web development software, such as Adobe Dreamweaver, BlueGriffon and Microsoft Visual Studio. Knowledge of the HyperTextMarkup Language (HTML) or of programming languages is still required to use such software, but the basics can be learned and implemented quickly with the help of the help files, technical books, internet tutorials, or face-to-face training.</p><br> 
-                             <p>An ever-growing set of tools and technologies have helped developers build more dynamic and interactive websites. Further, web developers now help to deliver applications as web services which were traditionally only available as an application on a desk-based computer. This has allowed for many opportunities to decentralize information and media distribution. Examples can be seen with the rise of cloud services such as Adobe Creative Cloud, Dropbox, and Google Docs. These web services allow users to interact with applications from many locations, instead of being tied to a specific workstation for their application environment.</p>
-                    </li>
-                </ul>
 
-                <ul class="main-item-l">
-                    <li><h4>The Gallery</h4></li>
-                    <li><p>Images to the right should be added as links. Each images should be responsive.</p></li>
-                </ul>
+            <ul class="main-item-l">
+                <li>
+                    <h4>Web Develoment as Industry</h4>
+                </li>
+                <li>
+                    <p>Examples of dramatic transformation in communication and commerce led by web development includes e-commerce. Online auction sites such as eBay have changed the way consumer find and purchase goods and services. Online retailers such
+                        as Amazon.com and Buy.com (among many others) have transformed the shopping and bargain-hunting experience for many consumers.</p>
+                </li>
+            </ul>
+            <ul class="main-item-r">
+                <li>
+                    <h2>Practical web development</h2>
+                </li>
+                <li>
+                    <p>Since the commercialization of the web, web development has been a growing industry. The growth of this industry is being driven by businesses wishing to use their website to sell products and services to customers.[1]</p><br>
+                    <p>There is open source software for web development like BerkeleyDB, GlassFish, LAMP (Linux, Apache, MySQL, PHP) stack, and Perl/Plack. This has kept the cost of learning web development to a minimum. Another contributing factor to the
+                        growth of the industry has been the rise of easy-to-use WYSIWYG web development software, such as Adobe Dreamweaver, BlueGriffon and Microsoft Visual Studio. Knowledge of the HyperTextMarkup Language (HTML) or of programming languages
+                        is still required to use such software, but the basics can be learned and implemented quickly with the help of the help files, technical books, internet tutorials, or face-to-face training.</p><br>
+                    <p>An ever-growing set of tools and technologies have helped developers build more dynamic and interactive websites. Further, web developers now help to deliver applications as web services which were traditionally only available as an
+                        application on a desk-based computer. This has allowed for many opportunities to decentralize information and media distribution. Examples can be seen with the rise of cloud services such as Adobe Creative Cloud, Dropbox, and Google
+                        Docs. These web services allow users to interact with applications from many locations, instead of being tied to a specific workstation for their application environment.</p>
+                </li>
+            </ul>
 
-                <ul class="logotypes">
-                    <li><h2>Logotypes on the web</h2></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/002-target.svg" alt="Target"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/005-images.svg" alt="Images"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/012-laptop.svg" alt="Laptop"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/014-video player.svg" alt="Video Player"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/018-startup.svg" alt="Startup"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/024-lightbulb.svg" alt="Lightbulb"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/026-layers.svg" alt="Layers"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/027-houses.svg" alt="Houses"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/036-resize.svg" alt="Resize"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/037-monitor.svg" alt="Monitor"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/041-wireframe.svg" alt="Wireframe"></a></li>
-                    <li><a href="https://www.hackyourfuture.dk"><img src="media/045-view.svg" alt="View"></a></li>                
-                </ul>
+            <ul class="main-item-l">
+                <li>
+                    <h4>The Gallery</h4>
+                </li>
+                <li>
+                    <p>Images to the right should be added as links. Each images should be responsive.</p>
+                </li>
+            </ul>
 
-
-
+            <ul class="logotypes">
+                <li>
+                    <h2>Logotypes on the web</h2>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/002-target.png" alt="Target"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/005-images.png" alt="Images"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/012-laptop.png" alt="Laptop"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/014-video player.png" alt="Video Player"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/018-startup.png" alt="Startup"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/024-lightbulb.png" alt="Lightbulb"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/026-layers.png" alt="Layers"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/027-houses.png" alt="Houses"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/036-resize.png" alt="Resize"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/037-monitor.png" alt="Monitor"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/041-wireframe.png" alt="Wireframe"></a>
+                </li>
+                <li>
+                    <a href="https://www.hackyourfuture.dk"><img src="media/045-view.png" alt="View"></a>
+                </li>
+            </ul>
         </main>
 
         <footer>
             <ul class="find-us">
-                <li><h4>Find Us</h4></li>
+                <li>
+                    <h4>Find Us</h4>
+                </li>
                 <li id="map">MAP</li>
                 <li>HACK YOUR FUTURE COPENHAGEN</li>
                 <li>M-Th: 7am - 4pm</li>
                 <li>Fri-Sat: 9am - 8pm</li>
-                </ul>
+            </ul>
             <ul class="about-this-page">
-                <li><h4>About This Page</h4></li>
-                <li><p>This is a footer of the page for homework 02</p></li>
-                </ul>
+                <li>
+                    <h4>About This Page</h4>
+                </li>
+                <li>
+                    <p>This is a footer of the page for homework 02</p>
+                </li>
+            </ul>
             <ul class="archives">
-                <li >Archives</li>
+                <li>Archives</li>
                 <li>March 2016</li>
                 <li>February 2016</li>
                 <li>January 2016</li>
-                </ul>
+            </ul>
             <ul class="footer-nav">
                 <li>Navigation</li>
                 <li>Home</li>
@@ -112,4 +161,5 @@ function initMap() {
         </footer>
     </div>
 </body>
+
 </html>
