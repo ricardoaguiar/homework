@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework Week 3 Step 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><img src="media/logo.png" alt="Logo"></li>
+                <li><a href="index.html">Step 1</a></li>
+                <li class="current-step">Step 2</li>
+                <li><a href="index3.html">Step 3</a></li>
+                <li><a href="index4.html">Step 4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form action="">
+        <main>
+            <section>
+                <h1>Sign up to yourcustomtailor.com</h1>
+                <h2>Step 2/4 - how can we reach you?</h2>
+                <div class="bar">
+                    <label for="progress-bar">Progress</label>
+                    <progress class="progress-bar" id="progress-percentage" max="100" value="40"></progress>
+                </div>
+                <p>We will probably need to saty in touch somehow. Let us know how can we reach you?</p>
+            </section>
+
+            <section class="form-fields">
+                <ul>
+                    <li><label for="email">Email <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="email" name="email" id="email" placeholder="Enter your email" title="only valid email and domains addresses" pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" required></li>
+                    <li><label for="phone">Phone</label></li>
+                    <li><input autofocus type="text" name="phone" id="phone" placeholder="+00 0000 0000" pattern="^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$" required></li>
+                    <li><label for="password"><span>Password: </span><strong><abbr title="required"><sup>*</sup></abbr></strong></label></li>
+                    <li><input type="password" id="password" name="password" required pattern="^(?=.{10,})(?=.*[1-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[(!@#$%^&*()_+|~\- =\`{}[\]:”;'<>?,.\/, )])(?!.*(.)\1{2,}).+$"></li>
+                    <li><label for="password2"><span>Re-enter Password: </span><strong><abbr title="required"><sup>*</sup></abbr></strong></label></li>
+                    <li><input type="password" id="password2" name="password2" required pattern="^(?=.{10,})(?=.*[1-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[(!@#$%^&*()_+|~\- =\`{}[\]:”;'<>?,.\/, )])(?!.*(.)\1{2,}).+$"></li>
+                </ul>
+            </section>
+
+            <section>
+                <ul class="newsletter">
+                    <li>I want to sigh up for the newsletter</li>
+                    <li><input type="radio" name="weekly_news" id="weekly_news" value="checked" checked><label for="weekly_news">Weekly News</label></li>
+                    <li class="styled-checkbox"><input type="checkbox" id="monthly_news"><label for="monthly_news">Monthly News</label></li>
+                    <li class="styled-checkbox"><input type="checkbox" id="no_news"><label for="no_news">Don't send me news</label></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <ul>
+                <li><a href="index.html">back</a></li>
+                <li><button id="submit" type="submit">Check form</button></li>
+                <li><a href="index3.html">next</a></li>
+            </ul>
+        </footer>
+    </form>
+</body>
+
+</html>

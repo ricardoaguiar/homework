@@ -1,0 +1,398 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300&display=swap");
+
+/* reset the box model */
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 100%;
+    color: black;
+    margin: 0 auto;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+header {
+    margin: 1em 12vw;
+}
+
+form {
+    margin: 0 15vw;
+}
+
+h1 {
+    font-size: 2.3em;
+    line-height: 2;
+}
+
+h2 {
+    font-size: 1.7em;
+    line-height: 3;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    background: rgba(125, 161, 134, 0.589);
+    padding: .8em;
+    font-weight: 600;
+    color: black;
+}
+
+a:hover {
+    background: rgba(255, 68, 0, 0.76);
+    color: white;
+}
+
+p {
+    line-height: 1.6;
+}
+
+
+/* logo */
+
+.logo {
+    flex-grow: 2;
+    text-align: start;
+}
+
+
+/* logo width */
+
+img {
+    width: 70px;
+}
+
+
+/* nav */
+
+nav ul {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+nav ul li {
+    flex-grow: .4;
+    text-align: center;
+    align-self: center;
+    text-transform: uppercase;
+}
+
+
+/* highlight the current nav step */
+
+.current-step {
+    padding: .8em;
+    font-weight: 600;
+    background: rgba(255, 68, 0, 0.76);
+    color: white;
+}
+
+
+/* progress bar  */
+
+.bar {
+    padding: .5em;
+    margin-bottom: 2em;
+    align-items: center;
+}
+
+.progress-bar {
+    width: 100%;
+}
+
+
+/* global form fields // grid display */
+
+.form-fields ul,
+.ship-preferences {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.form-fields ul li {
+    justify-self: start;
+    margin-top: 1rem;
+    text-align: center;
+    align-self: center;
+}
+
+.form-fields li:nth-child(odd),
+.ship-preferences li:nth-child(odd) {
+    justify-self: end;
+}
+
+.form-fields input[type=radio] {
+    width: 2em;
+}
+
+section {
+    margin: 0 auto;
+}
+
+
+/* asterics for required fields*/
+
+sup,
+abbr {
+    color: red;
+    text-decoration: none;
+}
+
+
+/* styling for input fields */
+
+input,
+select {
+    text-transform: uppercase;
+    letter-spacing: normal;
+    text-shadow: none;
+    text-align: start;
+    margin: 1.5em;
+    padding: .6em;
+    font: 600 14px;
+    height: 3em;
+    width: 20vw;
+    border-bottom: 1px solid rgb(128, 128, 128, 0.5);
+    box-shadow: none;
+    border-collapse: collapse;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-top-right-radius: 0.6em;
+    border-top-left-radius: 0.6em;
+    background: rgb(255, 238, 232);
+}
+
+
+/* align country dd to the left on the grid */
+
+.country {
+    grid-column: 1 / 2;
+}
+
+
+/* profile textarea page 1 */
+
+#profile {
+    height: 80px;
+    width: 45vw;
+    background: rgb(255, 238, 232);
+    padding: .5em;
+    border-top-right-radius: 0.6em;
+    border-top-left-radius: 0.6em;
+    border-left: 0;
+    border-right: 0;
+    border-block-end-color: rgba(128, 128, 128, 0.5);
+    border-block-start: none;
+}
+
+.profile ul {
+    margin: 2rem auto;
+    grid-template-columns: .4fr 1fr;
+}
+
+.profile ul li {
+    align-self: flex-start;
+    text-align: start;
+}
+
+.profile p {
+    margin-top: 1em;
+    font-size: .7em;
+    margin-right: 3em;
+}
+
+.profile ul li:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 3em;
+}
+
+
+/* hide shipping by default */
+
+#shipinfo {
+    margin-bottom: 10vw;
+    display: none;
+}
+
+.ship-preferences {
+    margin: 3vw 0;
+    align-items: center;
+}
+
+
+/*  newsletter section page 2*/
+
+.newsletter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 2em;
+}
+
+.newsletter li:first-child {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 2em;
+}
+
+.newsletter li:nth-child(2) {
+    justify-self: start;
+    align-self: start;
+}
+
+
+/* 
+.newsletter input[type=radio] {
+    width: 2.1em;
+    height: 2.1em;
+    margin-left: 0;
+    margin-right: .8em;
+    margin-top: 0;
+    align-items: center;
+} */
+
+
+/* page 3*/
+
+
+/* select-items grid */
+
+.select-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    padding: 5vw;
+}
+
+.select-items {
+    grid-gap: 0.5em;
+    padding: 1em 0 2em 0;
+}
+
+
+/* style-selection / image grid */
+
+.style-selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1.2em;
+    grid-row-gap: 1.5em;
+    margin-top: 2em;
+}
+
+section img {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: -.2em;
+}
+
+
+/* center the checkbox under the image */
+
+.style-selection input[type=checkbox]+label {
+    display: block;
+    text-align: center;
+}
+
+
+/* hide the default radio & checkboxe */
+
+input[type=checkbox] {
+    display: none;
+}
+
+
+/* resize the radio button */
+
+input[type=radio] {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.styled-checkbox input[type=checkbox]:checked {
+    left: 12px;
+}
+
+.styled-checkbox input[type=checkbox]+label {
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+}
+
+.styled-checkbox input[type=checkbox]+label:before {
+    content: "\2714";
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 0.18em;
+    display: inline-block;
+    width: 1.3em;
+    height: 1em;
+    padding-left: .2em;
+    padding-bottom: 1.3em;
+    margin-right: 0.5em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    font-size: 19px;
+}
+
+.styled-checkbox input[type=checkbox]+label:active:before {
+    transform: scale(0);
+}
+
+.styled-checkbox input[type=checkbox]:checked+label:before {
+    background-color: rgba(255, 68, 0, 0.76);
+    color: #fff;
+}
+
+footer {
+    margin-top: 5rem;
+}
+
+footer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+footer ul li {
+    margin: 1em;
+    text-align: center;
+}
+
+footer a,
+button {
+    text-transform: uppercase;
+    width: 220px;
+    padding: 1em;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    font-family: Merriweather;
+    font-size: 1rem;
+    font-weight: 800;
+    border: 1px solid rgb(128, 128, 128);
+    /* display: block; */
+}
+
+button:hover {
+    background: rgb(131, 131, 131);
+    color: white;
+    cursor: pointer;
+}

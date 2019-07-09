@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework Week 3 Step 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function showHideShipInfo() {
+            if (document.getElementById('shipsame').checked) {
+                document.getElementById('shipinfo').style.display = 'none';
+            } else {
+                document.getElementById('shipinfo').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><img src="media/logo.png" alt="Logo"></li>
+                <li class="current-step">Step 1</li>
+                <li><a href="index2.html">Step 2</a></li>
+                <li><a href="index3.html">Step 3</a></li>
+                <li><a href="index4.html">Step 4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form action="">
+        <main>
+            <section>
+                <h1>Sign up to yourcustomtailor.com</h1>
+                <p>We can't wait to help you improve your life-style and gain the attention from people around you!</p><br>
+                <p>Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details
+                    about you first...</p>
+                <h2>Step 1/4 - tell us who you are? </h2>
+                <!-- progress bar -->
+                <div class="bar">
+                    <label for="progress-bar">Progress</label>
+                    <progress class="progress-bar" id="progress-bar" max="100" value="20"></progress>
+                </div>
+                <p>Nice to meet you. Let's spend a minute to get to know each other? Please enter the following information:</p>
+            </section>
+            <!-- form fields -->
+            <section class="form-fields">
+                <ul>
+                    <li><label for="first_name">First Name <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="first_name" id="first_name" placeholder="Enter your first name" required></li>
+
+                    <li><label for="last_name">Last Name <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="last_name" id="last_name" placeholder="Enter your last name" required></li>
+
+                    <li><label for="street">Street Address<abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="street" id="street_address" placeholder="Enter your address" required></li>
+
+                    <li><label for="post_code">Post code <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="post_code" id="post_code" placeholder="0000" required maxlength="4" pattern="[1-9]{1}[0-9]{3}$" title="check your zip code. Only Danish zip codes are allowed."></li>
+
+                    <li class="country"><label for="country">Country <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li>
+                        <select id="country" name="country">
+                            <option disabled>Select a country</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Denmark" selected value>Denmark</option>
+                            <option value="Faroe_Islands">Faroe_Islands</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Guernsey">Guernsey</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Isle_of_Man">Isle_of_Man</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jersey">Jersey</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="San_Marino">San_Marino</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="United_Kingdom">United_Kingdom</option>
+                        </select>
+                    </li>
+                </ul>
+                <!-- profile box -->
+                <section class="profile">
+                    <ul>
+                        <li><label for="profile">Profile description</label>
+                            <p class="profile">Please provide a short description of yourself to be displayed on our social community pages.</p>
+                        </li>
+                        <li><textarea id="profile" name="profile" placeholder="maximum 500 characters" cols="8" rows="4"></textarea></li>
+                        <li>Use the same address for billing and shipping? Uncheck below to fill out a separate shipping address</li>
+                    </ul>
+                </section>
+            </section>
+            <!-- checkbox for shipping address -->
+            <section>
+                <ul>
+                    <li class="styled-checkbox">
+                        <input type="checkbox" id="shipsame" name="shipsame" checked onclick="showHideShipInfo()">
+                        <label for="shipsame">Shipping Address</label>
+                    </li>
+                </ul>
+            </section>
+            <!-- shipping information fields -->
+            <section id="shipinfo">
+                <ul class="ship-preferences">
+                    <li><label for="first_name2">First Name <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="first_name2" id="first_name2" placeholder="Enter your first name" required></li>
+
+                    <li><label for="last_name2">Last Name <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="last_name2" id="last_name2" placeholder="Enter your last name" required></li>
+
+                    <li><label for="street2">Street Address<abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="street2" id="street_address2" placeholder="Enter your address" required></li>
+
+                    <li><label for="post_code2">Post code <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li><input autofocus type="text" name="post_code2" id="post_code2" placeholder="0000" required maxlength="4" pattern="[1-9]{1}[0-9]{3}$" title="check your zip code. Only Danish zip codes are allowed."></li>
+
+                    <li class="country"><label for="country2">Country <abbr title="required"><sup>*</sup></abbr></label></li>
+                    <li>
+                        <select id="country2" name="country2">
+                        <option disabled>Select a country</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Denmark" selected value>Denmark</option>
+                        <option value="Faroe_Islands">Faroe_Islands</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Gibraltar">Gibraltar</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Guernsey">Guernsey</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Isle_of_Man">Isle_of_Man</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Jersey">Jersey</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="San_Marino">San_Marino</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="United_Kingdom">United_Kingdom</option>
+                    </select>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <!-- footer -->
+        <footer>
+            <ul>
+                <li><button id="reset" type="reset">Start over</button></li>
+                <li><button id="submit" type="submit">Check form</button></li>
+                <li><a href="index2.html">Next</a></li>
+            </ul>
+        </footer>
+    </form>
+</body>
+
+</html>
