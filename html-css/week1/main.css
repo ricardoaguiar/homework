@@ -259,13 +259,6 @@ ul {
 /* end skills */
 
 
-/* personal interests */
-
-.personal-interests-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
 
 /* end personal interest */
 
@@ -348,6 +341,23 @@ ul {
 
 /*  end professional experience */
 
+
+/* personal interests */
+.personal-interests {
+    margin-bottom: 2rem
+}
+
+.personal-interests-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.learning-resources {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around
+}
 
 /* footer */
 
