@@ -135,9 +135,6 @@ nav ul li {
     justify-self: end;
 }
 
-.form-fields input[type=radio] {
-    width: 2em;
-}
 
 section {
     margin: 0 auto;
@@ -163,7 +160,7 @@ select {
     text-align: start;
     margin: 1.5em;
     padding: .6em;
-    font: 600 14px;
+    /* font: 600 14px; */
     height: 3em;
     width: 20vw;
     border-bottom: 1px solid rgb(128, 128, 128, 0.5);
@@ -256,17 +253,6 @@ select {
 }
 
 
-/* 
-.newsletter input[type=radio] {
-    width: 2.1em;
-    height: 2.1em;
-    margin-left: 0;
-    margin-right: .8em;
-    margin-top: 0;
-    align-items: center;
-} */
-
-
 /* page 3*/
 
 
@@ -304,64 +290,6 @@ section img {
 }
 
 
-/* center the checkbox under the image */
-
-.style-selection input[type=checkbox]+label {
-    display: block;
-    text-align: center;
-}
-
-
-/* hide the default radio & checkboxe */
-
-input[type=checkbox] {
-    display: none;
-}
-
-
-/* resize the radio button */
-
-input[type=radio] {
-    width: 1.2em;
-    height: 1.2em;
-}
-
-.styled-checkbox input[type=checkbox]:checked {
-    left: 12px;
-}
-
-.styled-checkbox input[type=checkbox]+label {
-    display: block;
-    margin: 0.2em;
-    cursor: pointer;
-    padding: 0.2em;
-}
-
-.styled-checkbox input[type=checkbox]+label:before {
-    content: "\2714";
-    border: 1px solid rgb(128, 128, 128);
-    border-radius: 0.18em;
-    display: inline-block;
-    width: 1.3em;
-    height: 1em;
-    padding-left: .2em;
-    padding-bottom: 1.3em;
-    margin-right: 0.5em;
-    vertical-align: bottom;
-    color: transparent;
-    transition: .2s;
-    font-size: 19px;
-}
-
-.styled-checkbox input[type=checkbox]+label:active:before {
-    transform: scale(0);
-}
-
-.styled-checkbox input[type=checkbox]:checked+label:before {
-    background-color: rgba(255, 68, 0, 0.76);
-    color: #fff;
-}
-
 footer {
     margin-top: 5rem;
 }
@@ -395,4 +323,69 @@ button:hover {
     background: rgb(131, 131, 131);
     color: white;
     cursor: pointer;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+
+
+.rc-label {
+    display: block;
+    position: relative;
+    margin: 10px 0;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
+.rc-label::before, .rc-label::after {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+input[type="radio"]:checked + .rc-label::before, 
+input[type="radio"]:checked + .rc-label::after {
+border-radius: 50%
+}
+
+.rc-label::before {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(0, 0, 0); 
+}
+
+input:focus + .rc-label::before {
+  border-color: rgba(125, 161, 134, 0.589);
+}
+
+.rc-label::after {
+  display: none;
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+  background-color: rgba(125, 161, 134, 0.589);
+}
+
+input:checked + .rc-label::after {
+  display: block;
+}
+
+#shipsame:checked ~ .ship-preferences {
+    display: none;
+}
+
+article.style-selection li {
+  /* background-color: #cccccc;
+  justify-content: center;
+  align-content: center;
+  justify-self: center;
+  justify-items: center;
+  margin: 0 auto;
+  align-self: center;
+  text-align: center; */
+
 }

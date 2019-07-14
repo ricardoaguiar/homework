@@ -7,15 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homework Week 3 Step 1</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript">
-        function showHideShipInfo() {
-            if (document.getElementById('shipsame').checked) {
-                document.getElementById('shipinfo').style.display = 'none';
-            } else {
-                document.getElementById('shipinfo').style.display = 'block';
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -109,15 +100,9 @@
             </section>
             <!-- checkbox for shipping address -->
             <section>
-                <ul>
-                    <li class="styled-checkbox">
-                        <input type="checkbox" id="shipsame" name="shipsame" checked onclick="showHideShipInfo()">
-                        <label for="shipsame">Shipping Address</label>
-                    </li>
-                </ul>
-            </section>
-            <!-- shipping information fields -->
-            <section id="shipinfo">
+               <input id="shipsame" type="checkbox" checked>
+               <label for="shipsame" class="rc-label">Shipping Address</label>
+             <!-- shipping information fields -->
                 <ul class="ship-preferences">
                     <li><label for="first_name2">First Name <abbr title="required"><sup>*</sup></abbr></label></li>
                     <li><input autofocus type="text" name="first_name2" id="first_name2" placeholder="Enter your first name" required></li>
@@ -166,8 +151,12 @@
                     </select>
                     </li>
                 </ul>
-            </section>
-        </main>
+        </section>
+
+
+
+</main>
+
         <!-- footer -->
         <footer>
             <ul>
@@ -178,5 +167,4 @@
         </footer>
     </form>
 </body>
-
 </html>
