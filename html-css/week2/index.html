@@ -5,23 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HYF Homework Week 2</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-
-    <script type="text/javascript">
-// Initialize and add the map
-function initMap() {
-  // The location of odense
-  var odense = {lat: 55.401, lng: 10.386};
-  // The map, centered at odense
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 12, center: odense});
-  // The marker, positioned at odense
-  var marker = new google.maps.Marker({position: odense, map: map});
-}
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN-2Iwg2onSpFyop0w00q-WI5bTu8z-VM&callback=initMap">
-    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -84,7 +68,7 @@ function initMap() {
         <footer>
             <ul class="find-us">
                 <li><h4>Find Us</h4></li>
-                <li id="map">MAP</li>
+                <li id="map"><img src="media/map.png" alt="Odense Map"></li>
                 <li>HACK YOUR FUTURE COPENHAGEN</li>
                 <li>M-Th: 7am - 4pm</li>
                 <li>Fri-Sat: 9am - 8pm</li>
