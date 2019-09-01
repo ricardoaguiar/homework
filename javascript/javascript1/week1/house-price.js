@@ -1,39 +1,27 @@
-//peter house
-// var peterHouseWidth = 8;
-// var peterHouseDepth = 10;
-// var peterHouseHeight = 10;
-// var peterHouseGardenSize = 100;
-// var peterHouseSize = peterHouseWidth * peterHouseDepth * peterHouseHeight;
 
-console.log('house price');
-
-let wideInMetersForPeter = 8;
-let deepInMetersForPeter = 10;
-let highInMetersForPeter = 10;
-let gardenSizeInM2ForPeter = 100;
-
-let volumeInMetersForPeter = wideInMetersForPeter * deepInMetersForPeter * highInMetersForPeter;
-let housePriceForPeter = volumeInMetersForPeter * 2.5 * 1000 + gardenSizeInM2ForPeter * 300;
-
-console.log('House price for Peter: ' + housePriceForPeter);
-
-if (housePriceForPeter > 2500000) {
-	console.log('The house is expensive');
+let widthPeter = 8;
+let depthPeter = 10;
+let heightPeter = 10;
+let m2GardenPeter = 100;
+let volMeterPeter = widthPeter * depthPeter * heightPeter;
+let peterHousePrice = volMeterPeter * 2.5 * 1000 + m2GardenPeter * 300;
+console.log("Peter paid " + peterHousePrice);
+if (peterHousePrice > 2500000) {
+    console.log("Peter paid too much");
 } else {
-	console.log('The price is okay');
+    console.log("Peter paid an okay price");
 }
 
-let wideInMetersForJulia = 5;
-let deepInMetersForJulia = 11;
-let highInMetersForJulia = 8;
-let gardenSizeInM2ForJulia = 70;
+let widthJulia = 5;
+let depthJulia = 11;
+let heightJulia = 8;
+let m2GardenJulia = 70;
+let volMeterJulia = widthJulia * depthJulia * heightJulia;
+let juliaHousePrice = volMeterJulia * 2.5 * 1000 + m2GardenJulia * 300;
 
-let volumeInMetersForJulia = wideInMetersForJulia * deepInMetersForJulia * highInMetersForJulia;
-let housePriceForJulia = volumeInMetersForJulia * 2.5 * 1000 + gardenSizeInM2ForJulia * 300;
-
-console.log('House price for Julia: ' + housePriceForJulia);
-if (housePriceForJulia > 1000000) {
-	console.log('The house is expensive');
+console.log("Julia paid " + juliaHousePrice);
+if (juliaHousePrice > 1000000) {
+    console.log("Julia paid too much");
 } else {
-	console.log('The price is okay');
+    console.log("Julia paid an okay price");
 }
