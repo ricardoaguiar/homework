@@ -58,8 +58,10 @@ function showMessage(from, text) {
 }
 
 let from = "Ann";
-showMessage(from, "Hello"); // *Ann*: Hello // the function variable now has a new value 
+showMessage(from, "Hello"); // *Ann*: Hello 
+                            // the function call is using the variable "from" from inside the function 
+                            // instead of the declared variable declared outside the function (let from = "Ann")
 
 // the value of "from" is the same, the function modified a local copy
-alert( from ); // Ann
+alert( from ); // Ann - //global varialbe ouside the function 
 
