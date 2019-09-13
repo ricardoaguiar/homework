@@ -18,4 +18,4 @@ console.log(randomNumber);
 console.log(randomNumber2);
 console.log(startupName1);
 console.log(startupName2);
-console.log(startupName); //it works but it joins the same index item from both arrays / fx. item 3 of first and second array. It would be better if could pick a random from each that are not the same index number. 
+console.log(startupName);
