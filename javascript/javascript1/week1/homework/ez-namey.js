@@ -39,4 +39,4 @@ function randomFirstName(firstWords, secondWords) {
     //combine the math.random result from each array in one return statement
     return firstWords[Math.floor(Math.random() * firstWords.length)] + " " + secondWords[Math.floor(Math.random() * secondWords.length)];
 }
-console.log(randomFirstName(firstWords, secondWords));
+console.log(randomFirstName(firstWords, secondWords)); //it works!
