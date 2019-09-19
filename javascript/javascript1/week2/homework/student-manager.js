@@ -1,32 +1,59 @@
+console.log("student manager exercise");
+
+
+//empty array
+const class07Students = [];
+//only the queen is allowed to join
+const queenOfDenmark = "Margrethe";
 
 
 
+function addStudentToClass(studentName) { //the studentName will be evaluated 
 
-const class07Students = ["John", "Mary", "Joe", "Jenny", "Jonas", "Godfrey"]; //six elements in the array
-
-function addStudentToClass(studentName) { //the studentName will be evaluated as an array item
-    "use strict";
-    const queenOfDenmark = "Margareth";
-    //no single responsability - the function is doing multiple things
-    if (studentName === "" || studentName === Number) { //not sure if this is correct
-        console.log("Please use only letters. No blanks or numbers allowed.");
-    } else if (class07Students.length > 5) { //this is not working
-        console.log("The class is full.");
+  for (let i = 0; i < class07Students.length; i++) { //begin the for loop
+    if (class07Students.lenght === 0) {
+      // class07Students.push(studentName);
     }
+    //can't add an empty string or a number
+    if (studentName === '' || studentName === parseInt(studentName)) {
+      return "Please provide a name without numbers"
+    }
+    //only que queen can be added
+    if (studentName === "queenOfDenmark") {
+      return class07Students.push(studentName);
+    }
+
+    //can only have 6 regular students
+    if (class07Students.length > 6) {
+      return "The class is full and cannot take more students"
+    }
+    //can only have unique names
+    if (studentName === class07Students[i]) { //compare the array elements inside the for loop
+      return "The student is already in the class"
+    }
+  } //end the for loop.
+
+  return class07Students.push(studentName);
 }
 
+// console.log(addStudentToClass(2.6)); //but parseInt lets decimals in
+console.log(addStudentToClass("Margrethe")); //welcome the Queen
+console.log(addStudentToClass("jr"));
+console.log(addStudentToClass("jr")); //student already in the class
+console.log(addStudentToClass("jr1"));
+console.log(addStudentToClass("jr2"));
+console.log(addStudentToClass("jr3"));
+console.log(addStudentToClass("jr4"));
+console.log(addStudentToClass("jr5"));
+console.log(addStudentToClass("jr6")); //class is full
 
-const outPut = addStudentToClass("");
-console.log(class07Students.push('George')); //pushed George in the array and it logged 7 items
-console.log(outPut);
+console.log(addStudentToClass(2)); //numbers not allowed
+console.log(addStudentToClass("")); //empty not allowed
 
+console.log(class07Students); //check the array elements
 
+console.log("number of students on the array"); //number of elem. in the array
 function getNumberOfStudents() {
-    console.log(class07Students.length); //get the number of items in the array.
+  return class07Students.length;
 }
-
-const classTotal = getNumberOfStudents(); //returns the array lenght without console.log. 
-                                          //If commented out,it stops working.
-                                          //Why console.log is not really required here?
-                                          //perhaps because we are calling the function while assigning to
-                                          //a variable?
+console.log(getNumberOfStudents());
