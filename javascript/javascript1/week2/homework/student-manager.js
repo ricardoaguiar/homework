@@ -1,3 +1,4 @@
+console.log('---------------------------------');
 console.log("student manager exercise");
 
 
@@ -11,9 +12,9 @@ const queenOfDenmark = "Margrethe";
 function addStudentToClass(studentName) { //the studentName will be evaluated 
 
   for (let i = 0; i < class07Students.length; i++) { //begin the for loop
-    if (class07Students.lenght === 0) {
-      // class07Students.push(studentName);
-    }
+    // if (class07Students.lenght === 0) {
+    //   // class07Students.push(studentName);
+    // }
     //can't add an empty string or a number
     if (studentName === '' || studentName === parseInt(studentName)) {
       return "Please provide a name without numbers"
