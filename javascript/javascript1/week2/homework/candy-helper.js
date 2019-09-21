@@ -45,8 +45,8 @@ let boughtCandy = boughtCandyPrices.reduce((a, b) => a + b); //could not get the
 console.log(`You spent ${boughtCandy} in candy`); //return 23.55 //it works outside the function 
 
 let amountToSpend = Math.random() * 100;
-let needMoreCandy = amountToSpend.toFixed(2);
-console.log(`Your balance is ${needMoreCandy}`); //how much dough I have
+//let needMoreCandy = amountToSpend.toFixed(2);
+console.log(`Your balance is ${amountToSpend}`); //how much dough I have
 
 if (amountToSpend > boughtCandy) {
   console.log('You can buy more candy');
