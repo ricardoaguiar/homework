@@ -19,7 +19,7 @@ function arrayAverage(housePrices){
     return (sum / ct);
 }
 
-const averageResult = arrayAverage(housePrices);
+let averageResult = arrayAverage(housePrices);
 console.log(averageResult.toFixed(2));
 
 
@@ -36,12 +36,12 @@ function arrayMedian(housePrices) {
     return housePrices[mid];
     return (housePrices[mid - 1] + housePrices[mid]) / 2.0;
 }
-const medianResults = arrayMedian(housePrices);
+let medianResults = arrayMedian(housePrices);
 console.log(medianResults);
-
 
 //render to the DOM
 const paragraph = document.createElement('p');
+
 document.getElementById('average').innerHTML = averageResult.toFixed(2);
 document.getElementById('median').innerHTML = medianResults;
 
