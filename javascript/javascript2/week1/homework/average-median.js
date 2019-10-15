@@ -1,3 +1,6 @@
+console.log('----------------------');
+console.log('median and average');
+
 // use the functions on this array
 const housePrices = [3000000, 3500000, 1300000, 40000000, 100000000, 8000000, 2100000];
 
@@ -33,16 +36,16 @@ function arrayMedian(housePrices) {
     return housePrices[mid];
     return (housePrices[mid - 1] + housePrices[mid]) / 2.0;
 }
-console.log(arrayMedian(housePrices));
+const medianResults = arrayMedian(housePrices);
+console.log(medianResults);
 
 
-// function medianPrices(housePrices) {   
-// housePrices => {
-//     const mid = Math.floor(housePrices.lenght / 2 ),
-//     return housePrices.lenght % 2 !==0 ? prices[mid] : (nums[mid])    
-//    	prices = [...housePrices].sort((a, b) => a - b);
-// };
-// }
-
-// const medianResults = medianPrices(housePrices);
-// console.log(medianResults);
+//render to the DOM
+const paragraph = document.createElement('p');
+document.getElementById('median').innerHTML = medianResults;
+document.getElementById('average').innerHTML = averageResult.toFixed(2);
+// document.getElementById('#arrayResults').innerHTML = `<div>
+// <h4>Median Result:</h4><p>${medianResults}</p>
+// <h4>Average Result:</h4><p>${averageResult.toFixed(2)}</p>
+// </div>
+// `;
