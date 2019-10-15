@@ -42,8 +42,9 @@ console.log(medianResults);
 
 //render to the DOM
 const paragraph = document.createElement('p');
-document.getElementById('#median').innerHTML = medianResults;
-document.getElementById('#average').innerHTML = averageResult.toFixed(2);
+document.getElementById('average').innerHTML = averageResult.toFixed(2);
+document.getElementById('median').innerHTML = medianResults;
+
 // document.getElementById('#arrayResults').innerHTML = `<div>
 // <h4>Median Result:</h4><p>${medianResults}</p>
 // <h4>Average Result:</h4><p>${averageResult.toFixed(2)}</p>
