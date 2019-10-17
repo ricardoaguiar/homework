@@ -1,15 +1,18 @@
 console.log('Script loaded');
 
 const testProductNames = ['Flat screen', 'Mobile phone', 'Wallet'];
-renderProducts(testProductNames); // Should add 3 li's to the ul under the products section with Flat screen, Mobile phone, Wallet text
+// renderProducts(testProductNames); // Should add 3 li's to the ul under the products section with Flat screen, Mobile phone, Wallet text
 
-const list = document.querySelector('.products');
+const section = document.querySelector('.products');
+const ul = document.querySelector('.products ul');
 
 for(let i = 0; i < testProductNames.length; i++) {
-    const p = testProductNames[i];
+    const pdt = testProductNames[i];
+    console.log('product name', pdt);
     const li = document.createElement('li');
-    li.innerText = product;
-    list.appendChild(li);
+    console.log(li);
+    li.innerText = pdt;
+    ul.appendChild(li);
 }
 
 
