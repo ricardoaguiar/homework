@@ -56,3 +56,20 @@ button2.addEventListener("click", function () {
     `
     }
 });
+
+button2.addEventListener("mouseover", function () {
+    var rand = animalList[Math.floor(Math.random() * animalList.length)];
+    const name = document.querySelector("#nameInput").value;
+    if (name === "") {
+        alert("Name must be filled out");
+    } 
+    if (name !== "") {
+    const p = document.createElement('p');
+    document.getElementById('animalResult').innerHTML = `
+    <div>
+    <p>${name} - ${rand}</p>
+    </div>
+    `
+    }
+});
+
