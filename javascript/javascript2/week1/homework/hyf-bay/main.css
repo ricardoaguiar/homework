@@ -16,6 +16,10 @@ ul {
     margin: 0;
     padding: 0;
 }
+li {
+    padding: 5px;
+    border: 1px dotted rgba(190, 190, 190, 0.5);
+}
 
 header {
     background-color: white;
@@ -68,7 +72,9 @@ section.products>ul {
 
 section.products>ul>li>ul {
     display: flex;
+
     justify-content: space-between;
+    flex-flow: row wrap;
     align-items: center;
     padding: 12px 12px 12px 12px;
 }
