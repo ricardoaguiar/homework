@@ -32,9 +32,10 @@ let ratingMovies = movies.filter(val => val.rating > 6)
 console.log(ratingMovies);
 
 //6 number of movies with keywords
-let searchItems = ("breaker");
-let movieKeywords = movies.filter(val => val.title.toLowerCase().includes(searchItems.toLowerCase()));
-console.log(movieKeywords);
+// let searchItems = ['breaker', 'Crocodile', 'Days'];
+let movieKeywords = (item) => movies.filter(val => val.title.toLowerCase().includes(val));
+console.log('movieKeywords');
+console.log(movieKeywords('Days'));
 
 //7 find duplicates
 // let findDups = movies => movies.filter((item, index) => movies.indexOf(item.title) != index);
