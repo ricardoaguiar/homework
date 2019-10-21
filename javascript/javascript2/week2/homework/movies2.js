@@ -34,7 +34,6 @@ console.log(ratingMovies);
 //6 number of movies with keywords
 let searchItems = ("breaker");
 let movieKeywords = movies.filter(val => val.title.toLowerCase().includes(searchItems.toLowerCase()));
-
 console.log(movieKeywords);
 
 //7 find duplicates
