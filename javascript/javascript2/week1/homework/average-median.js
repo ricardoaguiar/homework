@@ -32,9 +32,11 @@ function arrayMedian(housePrices) {
         return a-b;
     });
     let mid = Math.floor(housePrices.length / 2);
-    if(housePrices.length % 2)
+    // if(housePrices.length % 2)
+    if(housePrices.length === 1)
     return housePrices[mid];
-    return (housePrices[mid - 1] + housePrices[mid]) / 2.0;
+    // return (housePrices[mid - 1] + housePrices[mid]) / 2.0;
+    return (housePrices[mid + 1] + housePrices[mid]) / 2.0;
 }
 let medianResults = arrayMedian(housePrices);
 console.log(medianResults);
@@ -42,8 +44,8 @@ console.log(medianResults);
 //render to the DOM
 const paragraph = document.createElement('p');
 
-document.getElementById('average').innerHTML = averageResult.toFixed(2);
-document.getElementById('median').innerHTML = medianResults;
+document.getElementById('average').innerText = averageResult.toFixed(2);
+document.getElementById('median').innerText = medianResults;
 
 // document.getElementById('#arrayResults').innerHTML = `<div>
 // <h4>Median Result:</h4><p>${medianResults}</p>
