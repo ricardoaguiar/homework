@@ -12,7 +12,7 @@ const animalList = ['Crying Wolf', 'Hungry Bear', 'Godzilla', 'Skinny Cat', 'Sti
 
 const button = document.querySelector("#getName");
 const button2 = document.querySelector("#getNewName");
-console.log(button);
+// console.log(button);
 
 // let nameValue = document.getElementById('nameInput').innerHTML;
 // console.log(name);
@@ -56,3 +56,36 @@ button2.addEventListener("click", function () {
     `
     }
 });
+
+const select = document.querySelector('select');
+
+select.onchange = function() {
+    let selOption = spiritAnimal.list[spiritAnimal.list.selectedIndex].value;
+    let selectedOpt = document.getElementById("selectedOption")
+
+    console.log(selOption);
+    if (selOption === 'clickButton') {
+        // alert('click button')
+        selectedOpt.innerHTML = ('Your current option is to click a button.');
+    } 
+    if (selOption === 'enterName') {
+        // alert('enter name')
+        document.getElementById("getName").disabled = true;
+        document.getElementById("getNewName").disabled = true;
+        selectedOpt.innerHTML = ('Your current option is to type your name.');
+        document.getElementById("nameInput").setAttribute("mouseenter", `${name}`);
+        document.getElementById("animalResult").innerHTML = `${name} - ${rand}`;
+
+        
+    } 
+    if (selOption === 'hoverInput') {
+        // alert('hover input')
+        document.getElementById("getName").disabled = true;
+        document.getElementById("getNewName").disabled = true;
+        selectedOpt.innerHTML = ('Your current option is to mouse over the input field.');
+        hoverOption.innerHTML = ('Type your name on the name field to get your spirit animal name');
+        document.getElementById("nameInput").setAttribute("mouseover", `${name}`);
+        document.getElementById("animalResult").innerHTML = `${name} - ${rand}`;
+        
+    } 
+}

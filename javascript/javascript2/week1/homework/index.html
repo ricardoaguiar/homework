@@ -22,16 +22,28 @@
     
     <hr>
     
-    <form id="spirit-animal">
-      
-      <input type="text" placeholder="name" id="nameInput">
-      <button type="button" id="getName">Get Spirit Name</button>
-      <button type="button" id="getNewName">Get New Spirit Name</button>
-      
-    </form>
+    <h4>How do you want to generate your spirit animal name?</h4>
+      <form id="spiritAnimal">  
+    <select id="list">
+      <option selected disabled>Select an option</option>
+      <option value="clickButton" id="clickButton">Click a Button</option>
+      <option value="enterName" id="enterName">Enter Name</option>
+      <option value="hoverInput" id="hoverInput">Hover Input</option>
+    </select>
+    <input type="text" placeholder="name" id="nameInput">
+    <button type="button" id="getName">Get Spirit Name</button>
+    <button type="button" id="getNewName">Get New Spirit Name</button>
+  </form>
+  <p id="selectedOption"></p>
+  <p id="hoverOption"></p>
     
     <div id="animalResult"></div>
    <!-- <p id="name2"></p><p id="animalName"></p> -->
+    
+    
+    <hr>
+    
+    <h4><a href="https://htmlpreview.github.io/?https://github.com/ricardoaguiar/homework/blob/master/javascript/javascript2/week1/homework/hyf-bay/index.html">HYF-BAY Exercise</a></h4>
     
      <script src="average-median.js"></script>
     <script src="spirit-animal.js"></script>
