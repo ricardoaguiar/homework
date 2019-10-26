@@ -19,8 +19,5 @@ function clicked() {
     console.log("button was clicked");
   }, 3000);
 }
-
   console.log("DOM fully loaded and parsed");
-
-
 });
