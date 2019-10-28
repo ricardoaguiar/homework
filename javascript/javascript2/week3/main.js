@@ -19,6 +19,5 @@ function clicked() {
     console.log("The button was clicked after 5 seconds");
   }, 5000);
 }
-
   console.log("DOM fully loaded and parsed");
 });
