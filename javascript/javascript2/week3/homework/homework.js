@@ -101,7 +101,21 @@ function jokeCreator(shouldTellFunnyJoke, logFunnyJoke, logBadJoke) {
 }
 
 // array of functions
-
 let arrOf = ['f1', 'f2', 'f3'];
 
+f1 = function first(){
+  console.log('first function');
+};
+f2 = function second(){
+  console.log('second function');
+};
+f3 = function third(){
+  console.log('third function');
+};
 
+console.log(f1);
+
+arrOf.forEach(
+  function(arrOf) {
+ console.log(arrOf);
+});
