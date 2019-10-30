@@ -84,5 +84,20 @@ function renderProducts (testProductNames) {
   }
 }
 
-renderProducts (testProductNames);
+function searchProducts(name, country) {
+  const mactchingProducts = products
+  .filter(p => p.name.toLoweCase().includes(name.toLoweCase()))
+  .filter(p => {
+    if (country) {
+      return.shipsTo.map(c => c.toLoweCase()).includes(country.toLoweCase()); 
+    } else {  
+      return true;    
+    }
+  });
+renderProducts(mactchingProducts);
+}
+
+
+
+// renderProducts (testProductNames);
 renderProducts (products);
