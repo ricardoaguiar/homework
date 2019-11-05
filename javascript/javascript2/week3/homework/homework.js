@@ -9,23 +9,22 @@ function delayLog(delay, stringToLog) {
         console.log(stringToLog);
     }, delay);
 }
-delayLog(0.5, "This is 0.5 seconds");
 delayLog(1, "This is 1 seconds");
 delayLog(2, "This is 2 seconds");
 delayLog(3, "This is 3 seconds");
 delayLog(5, "This is 5 seconds");
+delayLog(0.5, "This is 0.5 seconds");
 
 
-const earthLogger = function earthLogger() {
+function earthLogger() {
 console.log('Earth');   
 }
-const saturnLogger = function saturnLogger() {
+function saturnLogger() {
 console.log('Saturn');
 }
 
-function planetLogFunction() {
-    console.log(earthLogger());
-    console.log(saturnLogger());
+function planetLogFunction(logFunction) {
+  logFunction()
 }
 
 planetLogFunction(earthLogger);
