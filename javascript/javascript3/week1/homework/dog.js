@@ -28,7 +28,18 @@ fetch(urlAll)
         console.log('data:', data);
         console.log(data.message);
         dogObj = data;
-        console.log(dogObj.breed);
+        // Object.entries(data);
+        console.log(data); //log JSON object
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                const element = data[key];
+                console.log(element); //log JSON keys
+             let p = createNode('p');
+            
+             append(body, p);
+             
+            }
+        }
         
     });
 
