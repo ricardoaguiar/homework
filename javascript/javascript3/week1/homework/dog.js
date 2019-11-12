@@ -1,31 +1,42 @@
 
-const ul = document.getElementById('randomDog');
-const url = 'https://dog.ceo/api/breeds/image/random';
+// const ul = document.getElementById('randomDog');
+const urlRandom = 'https://dog.ceo/api/breeds/image/random';
+const urlAll = 'https://dog.ceo/api/breeds/list/all';
+let breed;
+let dogObj = {};
 
-const nrImg = 1;
 
-fetch(url)
+// setInterval(() => {
+//     fetch(urlRandom)
+//         .then((response) => {
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log('data:', data);
+//             console.log(data.message);
+//             let randomImg = data.message; 
+//             document.getElementById('randomDog').innerHTML = `<img src="${randomImg}" width=450px />`      
+//         })
+// }, 2000);
+ 
+
+fetch(urlAll)
     .then((response) => {
         return response.json();
     })
     .then(data => {
         console.log('data:', data);
         console.log(data.message);
-        let randomImg = data.message;
-    //     let li = document.createElement(`<img src="${randomImg}" />`);
-    //     ul.appendChild(li);
-    
+        dogObj = data;
+        console.log(dogObj.breed);
+        
     });
+
+    function createNode(element) { //function to create DOM elements
+        return document.createElement(element);
+    }
     
-function showImg() {
-    const img = document.createElement('img');
-    const li = document.createElement('li');
-}
+    function append(parent, el) { //function to append the 2nd parameter(element) to the 1st one 
+        return parent.appendChild(el);
+    }
 
-function createNode(element) {
-    return document.createElement(element); // Create the type of element you pass in the parameters
-  }
-
-  function append(parent, el) {
-    return parent.appendChild(el); // Append the second parameter(element) to the first one
-  }

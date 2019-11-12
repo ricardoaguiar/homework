@@ -10,10 +10,11 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=copenhagen&appid=daf90b
     console.log(weatherdata);
     
 });
-fetch("")
-  .then(function(resp) {
-    return resp.json();
-  })
-  .then(function(unsplash) {
-    console.log(unsplash);
-  });
+
+// fetch("")
+//   .then(function(resp) {
+//     return resp.json();
+//   })
+//   .then(function(unsplash) {
+//     console.log(unsplash);
+//   });
