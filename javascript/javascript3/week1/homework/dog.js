@@ -6,18 +6,18 @@ let breed;
 let dogObj = {};
 
 
-// setInterval(() => {
-//     fetch(urlRandom)
-//         .then((response) => {
-//             return response.json();
-//         })
-//         .then(data => {
-//             console.log('data:', data);
-//             console.log(data.message);
-//             let randomImg = data.message; 
-//             document.getElementById('randomDog').innerHTML = `<img src="${randomImg}" width=450px />`      
-//         })
-// }, 2000);
+setInterval(() => {
+    fetch(urlRandom)
+        .then((response) => {
+            return response.json();
+        })
+        .then(data => {
+            console.log('data:', data);
+            console.log(data.message);
+            let randomImg = data.message; 
+            document.getElementById('randomDog').innerHTML = `<img src="${randomImg}" width=450px />`      
+        })
+}, 2000);
  
 
 fetch(urlAll)
@@ -29,13 +29,12 @@ fetch(urlAll)
         console.log(data.message);
         dogObj = data;
         // Object.entries(data);
-        console.log(data); //log JSON object
-        for (const key in data) {
+       
+        for (const key in data.message) {
             if (data.hasOwnProperty(key)) {
                 const element = data[key];
                 console.log(element); //log JSON keys
              let p = createNode('p');
-            
              append(body, p);
              
             }
