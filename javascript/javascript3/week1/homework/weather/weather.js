@@ -1,15 +1,7 @@
 // API key daf90bf3cb90d58f344174ca345725da;
 //unsplash auth 5e58f855051d6436bc43a9b1a127727f330c137360afcdcd32c1252f27955d79
 
-//function to create elements
-function createNode (element) {
-  return document.createElement (element);
-}
 
-//function to append elements to the DOM
-function append (parent, el) {
-  return parent.appendChild (el);
-}
 
 //declare elements
 let ul = createNode ('ul');
@@ -23,7 +15,7 @@ let h1 = createNode ('h1');
 
 //append elements
 document.body.appendChild (h1);
-h1.innerText = 'Weater in your city';
+h1.innerText = 'Weather in your city';
 h1.marginBottom = '1em';
 h1.style.fontFamily = 'Arial';
 h1.style.fontSize = '1.5em';
@@ -52,8 +44,7 @@ button.style.borderStyle = 'solid';
 button.style.borderWidth = 'thin';
 button.style.marginLeft = '10px';
 button.style.fontSize = '.8em';
-button.id = 'cityWeather';
-button.setAttribute("class", "weatherApp");
+button.id = 'getWeather';
 
 p.style.fontFamily = 'Arial';
 p.style.fontSize = '0.8em';
@@ -69,9 +60,7 @@ li.style.fontWeight = '400';
 
 document.getElementById ('cityWeather').onclick = function() { 
   if (input.value === '') {
-    document.body.appendChild(p).innerText = 'Please enter a city name';
-  } else {
-    document.body.appendChild(p).innerText = input.value + ' weather';
+    return document.body.appendChild(p).innerText = 'Please enter a city name'; 
   }
   console.log (input.value);
   
