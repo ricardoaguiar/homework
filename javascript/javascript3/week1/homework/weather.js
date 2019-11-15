@@ -24,7 +24,7 @@ let h1 = createNode ('h1');
 // append(ul, li);
 // append(li, img);
 document.body.appendChild (h1);
-h1.innerText = 'Weater in your city';
+h1.innerText = 'Weather in your city';
 h1.marginBottom = '1em';
 h1.style.fontFamily = 'Arial';
 h1.style.fontSize = '1.5em';
