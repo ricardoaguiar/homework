@@ -65,36 +65,38 @@ li.style.fontWeight = '400';
 
 
 //get new weather by clicking the button
-
 document.getElementById ('cityWeather').onclick = function() { 
   if (input.value === '') {
-    return document.body.appendChild(p).innerText = 'Please enter a city name'; 
+    document.body.appendChild(p).innerText = 'Please enter a city name'; 
+  } else {
+    document.body.appendChild(p).innerText = `Current weather in ${input.value}`;
+    document.body.appendChild(ul);
   }
   console.log (input.value);
   
-  document.body.appendChild(ul);
   
   fetch (`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da`)
-    .then (res => res.json())
-    // .then (function(data) {
+  .then (res => res.json())
+  // .then (function(data) {
     //    for (const i in data) {
-    //     if (data.hasOwnProperty(i)) {
-    //        console.log(`${i}: ${data[i]}`);
-    //    }
-    //   }
-    .then (data => {
-      console.log(data);
-      // Object.entries(data).map(([key, value]) => {
-      //   console.log (`${key}: ${value}`);        
-      //     document.body.appendChild(p).innerText =  data.main.visibility;
-      
-      Object.getOwnPropertyNames(data).forEach((val, idx, array) => {
-        console.log(val + ' -> ' + data[val]); 
-        append(ul, li).innerText = `Current temperature in ${input.value}: ` + data.main.temp;
-        append(li, img).innerText = data.weather[0].icon;
-      
-      });
-      });
-    }
+      //     if (data.hasOwnProperty(i)) {
+        //        console.log(`${i}: ${data[i]}`);
+        //    }
+        //   }
+        .then (data => {
+          console.log(data);
+          // Object.entries(data).map(([key, value]) => {
+            //   console.log (`${key}: ${value}`);        
+            //     document.body.appendChild(p).innerText =  data.main.visibility;
+
+            Object.getOwnPropertyNames(data).forEach((val, idx, array) => {
+              console.log(val + ' -> ' + data[val]);
+
+              append(ul, li).innerText = `Current temperature in ${input.value}: ` + data.main.temp;
+              append(li, img).innerText = data.weather[0].icon;
+              
+            });
+          });
+        }
 
  
