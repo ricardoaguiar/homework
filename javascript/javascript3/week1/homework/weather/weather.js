@@ -2,6 +2,13 @@
 //unsplash auth 5e58f855051d6436bc43a9b1a127727f330c137360afcdcd32c1252f27955d79
 
 
+function createNode(element) {
+return  document.createElement(element);
+}
+
+function append(parent, el) {
+  return parent.appendChild(el);
+}
 
 //declare elements
 let ul = createNode ('ul');
@@ -89,3 +96,5 @@ document.getElementById ('cityWeather').onclick = function() {
       });
       });
     }
+
+ 
