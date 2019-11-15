@@ -44,7 +44,8 @@ button.style.borderStyle = 'solid';
 button.style.borderWidth = 'thin';
 button.style.marginLeft = '10px';
 button.style.fontSize = '.8em';
-button.id = 'getWeather';
+button.id = 'cityWeather';
+button.setAttribute("class", "weatherApp");
 
 p.style.fontFamily = 'Arial';
 p.style.fontSize = '0.8em';
