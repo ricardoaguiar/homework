@@ -42,9 +42,11 @@ let p = createNode ('p');
 // let pCity = createNode ('p');
 let h1 = createNode ('h1');
 let divMap = createNode('div');
+let divApp = createNode('div');
 
 //append elements
-document.body.appendChild (h1);
+appendBody(divApp);
+appendBody (h1);
 h1.innerText = 'Weather in your city';
 h1.marginBottom = '1em';
 h1.style.fontFamily = 'Arial';
@@ -88,7 +90,7 @@ ul.style.fontFamily = 'Arial';
 ul.style.fontSize = '0.8em';
 ul.style.fontWeight = '400';
 ul.style.height = '300px';
-ul.style.maxWidth = '400px';
+ul.style.maxWidth = '260px';
 ul.style.borderWidth = 'thin';
 ul.style.borderStyle = 'solid';
 ul.style.borderColor = '#ccc';
@@ -175,35 +177,6 @@ document.getElementById ('cityWeather').onclick = function () {
 
     });
 };
-
-
-
-/*
-navigator.geolocation.getCurrentPosition(success, error);
-
-function weather(){
-  fetch (
-    `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da&containerid:'openweathermap-widget-12'`
-  )
-    .then (res => res.json ())
-    .then (data => {
-      console.log (data);
-});
-}
-
-function success(pos) {
-        let lat = pos.coords.latitude;
-        let long = pos.coords.longitude;
-        weather(lat, long);
-    }
-
-    function error() {
-        console.log('There was an error');
-    }
-
-
-*/
-
 
 
 
