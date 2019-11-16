@@ -107,7 +107,7 @@ ul.style.flexFlow = 'column';
         lat = position.coords.latitude;
         // const proxy = 'https://cors-anywhere.herokuapp.com/'; //avoid cors issue on localhost
         // const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=daf90bf3cb90d58f344174ca345725da`;
-        const api = `https://cors.io/?https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&id=daf90bf3cb90d58f344174ca345725da`;
+        const api = `https://cors-anywhere.herokuapp.com/?https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&id=daf90bf3cb90d58f344174ca345725da`;
         fetch(api)
           .then(r => {
             console.log(r);
