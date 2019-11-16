@@ -3,8 +3,6 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
-
-
 function createNode (element) {
   return document.createElement (element);
 }
@@ -16,7 +14,6 @@ function append (parent, el) {
 function appendBody(e) {
   return document.body.appendChild(e);
 }
-
 
 
 //declare elements
