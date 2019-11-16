@@ -7,14 +7,17 @@ function createNode (element) {
   return document.createElement (element);
 }
 
-function append (parent, el) {
-  return parent.appendChild (el);
-}
-
 function appendBody(e) {
   return document.body.appendChild(e);
 }
 
+function append (parent, el) {
+  return parent.appendChild (el);
+}
+
+function getElId(id) {
+  return document.getElementById(id);
+}
 
 //declare elements
 // let body = createNode('body');
@@ -39,18 +42,31 @@ let p = createNode ('p');
 // let pCity = createNode ('p');
 let h1 = createNode ('h1');
 let divMap = createNode('div');
-let divApp = createNode('div');
+
+getElId(app);
+app.style.margin = '0 auto';
+app.style.borderWidth = '2px';
+app.style.borderColor = '#000';
+app.style.borderRadius = '0.4em';
+app.style.backgroundColor = '#099';
+app.style.padding = '1em';
+app.style.maxWidth = '70%';
+append(app, h1);
+append(app, input);
+append(app, button);
+append(app, ul);
+
 
 //append elements
-appendBody(divApp);
-appendBody (h1);
-h1.innerText = 'Weather in your city';
+
+
+
+h1.innerText = 'Weather';
 h1.marginBottom = '1em';
 h1.style.fontFamily = 'Arial';
 h1.style.fontSize = '1.5em';
 
 //appent and style input
-document.body.appendChild (input);
 input.type = 'text';
 input.placeholder = 'type city name';
 input.style.height = '3em';
@@ -66,7 +82,7 @@ input.id = 'cityName';
 input.setAttribute ('class', 'weatherApp');
 
 //append and style search button
-document.body.appendChild (button).innerText = 'Search';
+button.innerText = 'Search';
 button.type = 'submit';
 button.style.padding = '0.955em';
 button.style.borderRadius = '0.4em';
@@ -87,7 +103,7 @@ ul.style.fontFamily = 'Arial';
 ul.style.fontSize = '0.8em';
 ul.style.fontWeight = '400';
 ul.style.height = '300px';
-ul.style.maxWidth = '260px';
+// ul.style.maxWidth = '260px';
 ul.style.borderWidth = 'thin';
 ul.style.borderStyle = 'solid';
 ul.style.borderColor = '#ccc';
@@ -105,9 +121,9 @@ ul.style.flexFlow = 'column';
       navigator.geolocation.getCurrentPosition(position => {
         long = position.coords.longitude;
         lat = position.coords.latitude;
-        // const proxy = 'https://cors-anywhere.herokuapp.com/'; //avoid cors issue on localhost
-        // const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=daf90bf3cb90d58f344174ca345725da`;
-        const api = `https://cors-anywhere.herokuapp.com/?https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&id=daf90bf3cb90d58f344174ca345725da`;
+        const proxy = 'https://cors-anywhere.herokuapp.com/'; //avoid cors issue on localhost
+        const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=daf90bf3cb90d58f344174ca345725da`;
+        // const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&id=daf90bf3cb90d58f344174ca345725da`;
         fetch(api)
           .then(r => {
             console.log(r);
@@ -120,7 +136,7 @@ ul.style.flexFlow = 'column';
           console.log(main.temp);
           console.log(weather[0].description);
           console.log(weather[0].icon);
-          appendBody(ul);
+          // appendBody(ul); //already appended to the app above
           append(ul, liTemp).innerText = main.temp;
           append(ul, li).innerHTML = icon;
         });
@@ -130,11 +146,11 @@ ul.style.flexFlow = 'column';
   
 
 
-appendBody(divMap);
-divMap.setAttribute('id', 'map');
-divMap.style.height = '50%';
-divMap.style.borderWidth = 'solid';
-divMap.style.backgroundColor = '#333';
+// appendBody(divMap);
+// divMap.setAttribute('id', 'map');
+// divMap.style.height = '50%';
+// divMap.style.borderWidth = 'solid';
+// divMap.style.backgroundColor = '#333';
 
 
 //get new weather by clicking the button
@@ -143,12 +159,12 @@ document.getElementById ('cityWeather').onclick = function () {
     document.body.appendChild (p).innerText = 'Please enter a city name';
   } else {
     document.body.appendChild (p).innerText = `Current weather in ${input.value}`;
-    document.body.appendChild (ul);
+    // document.body.appendChild (ul);
   }
   console.log (input.value);
 
   fetch (
-    `https://cors.io/?https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da&containerid:'openweathermap-widget-12'`
+    `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da&containerid:'openweathermap-widget-12'`
   )
     .then (res => res.json ())
     .then (data => {
