@@ -6,8 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JS3 W1 Weather.JS</title>
+    <style> 
+    body {
+        margin-left: 0 auto;
+        margin-right: 0 auto;
+    }
+    ul li {
+        display: block;
+        margin: 10px;
+    }
+    </style>
+
 </head>
 <body>
     <script src="weather.js"></script>
+<script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+          });
+        }
+      </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYAhN5HXGEOd-JJRZHM97kzl5k85eySiQ&callback=initMap">
+  </script>
 </body>
 </html>
