@@ -105,9 +105,9 @@ ul.style.flexFlow = 'column';
       navigator.geolocation.getCurrentPosition(position => {
         long = position.coords.longitude;
         lat = position.coords.latitude;
-        const proxy = 'https://cors-anywhere.herokuapp.com/'; //avoid cors issue on localhost
-        const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=daf90bf3cb90d58f344174ca345725da`;
-        // const api = `https://api.openweathermap.org/data/2.5/weather?q=vejle&appid=daf90bf3cb90d58f344174ca345725da`;
+        // const proxy = 'https://cors-anywhere.herokuapp.com/'; //avoid cors issue on localhost
+        // const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=daf90bf3cb90d58f344174ca345725da`;
+        const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&id=daf90bf3cb90d58f344174ca345725da`;
         fetch(api)
           .then(r => {
             console.log(r);
@@ -174,8 +174,6 @@ document.getElementById ('cityWeather').onclick = function () {
 
     });
 };
-
-
 
 console.log("DOM fully loaded and parsed");
 });
