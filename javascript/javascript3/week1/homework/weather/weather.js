@@ -50,7 +50,7 @@ let div = createNode('div');
 // let div2 = createNode('div');
 
 
-
+//show the app on the DOM
 getElId(app);
 app.style.margin = '0 auto';
 app.style.borderWidth = '2px';
@@ -64,10 +64,8 @@ append(app, input);
 append(app, button);
 append(app, p);
 
-
 append(app,div);
 append(div,ul);
-
 
 
 h1App.innerText = 'Weather Search';
@@ -76,7 +74,7 @@ h1App.style.fontFamily = 'Arial';
 h1App.style.fontSize = '1.5em';
 h1App.style.color = '#fff';
 
-//appent and style input
+//style input
 input.type = 'text';
 input.placeholder = 'type city name';
 input.style.height = '3em';
@@ -91,7 +89,7 @@ input.style.fontSize = '.8em';
 input.id = 'cityName';
 input.setAttribute ('class', 'weatherApp');
 
-//append and style search button
+//style search button
 button.innerText = 'Search';
 button.type = 'submit';
 button.style.padding = '0.955em';
@@ -169,8 +167,8 @@ document.getElementById ('cityWeather').onclick = function () {
   if (input.value === '') {
     p.innerText = 'Please enter a city name';
   } else {
-    p.innerText = "";
-    append(div, ul2);  
+    p.innerText = ""; //empty the above p
+    append(div, ul2);  //append result of weather search
   }
   fetch (
     `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da&containerid:'openweathermap-widget-12'`
