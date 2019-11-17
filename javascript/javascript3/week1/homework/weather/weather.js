@@ -124,6 +124,7 @@ document.addEventListener ('DOMContentLoaded', function (event) {
   //styled for ul2 is on linked css file
   ul2.setAttribute ('class', 'searchWeather');
 
+
   window.onload = () => {
     let long;
     let lat;
@@ -140,7 +141,6 @@ document.addEventListener ('DOMContentLoaded', function (event) {
           .then (data => {
             const {main, weather, name, wind, clouds, sys, coord} = data;
             const icon = `<img src=http://openweathermap.org/img/wn/${weather[0].icon}@2x.png />`;
-
             append (ul, h2).innerText = `Local Weather in ` + name;
             append (ul, liTemp).innerText = `Temperature: ` + main.temp;
             append (ul, liIcon).innerHTML = icon;
