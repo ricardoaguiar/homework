@@ -33,23 +33,17 @@ h1.innerText = 'GIPHY APP';
 button.innerText = 'GIFS SEARCH'
 inputNumber.placeholder = 'number of gifs to display';
 
+const api2 = `http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=tsVdxtFKdIvj8uPoxKnO2lgCkzId4h8y&limit=5'`;
 
-function getGifs () {
 
-    fetch (
-        `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da'`
-      )
-        .then (res => res.json ())
-        .then (data2 => {
-          const {main, weather, name, wind, clouds, sys, coord} = data2;
-          console.log (data2);
-
-/*
-  fetch ('http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=tsVdxtFKdIvj8uPoxKnO2lgCkzId4h8y&limit=5')
-    .then (res => {
-        return res.json ();
+// document.getElementById ('giphyApp').onclick = () => {
+()=() => {
+  fetch (api2)
+    .then (r => {
+      console.log (r);
+      return r.json ();
     })
     .then (data => {
-        console.log ('success got data', data);
-    */  });
+      console.log ('success got data', data);
+    });
 };

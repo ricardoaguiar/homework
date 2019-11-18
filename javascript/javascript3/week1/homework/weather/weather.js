@@ -134,10 +134,11 @@
         const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=daf90bf3cb90d58f344174ca345725da`;
         fetch (api)
           .then (r => {
-            console.log (r);
+            console.log ('log r',r);
             return r.json ();
           })
           .then (data => {
+            console.log('log data', data);
             const {main, weather, name, wind, clouds, sys, coord} = data;
             const icon = `<img src=http://openweathermap.org/img/wn/${weather[0].icon}@2x.png />`;
             append (ul, h2).innerText = `Local Weather in ` + name;
@@ -163,14 +164,12 @@
       p.innerText = ''; //empty the above p
       append (div, ul2); //append result of weather search
     }
-    fetch (
-      `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da'`
-    )
+    fetch (`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da`)
       .then (res => res.json ())
       .then (data2 => {
         const {main, weather, name, wind, clouds, sys, coord} = data2;
-        console.log (data2);
         const icon2 = `<img src=http://openweathermap.org/img/wn/${weather[0].icon}@2x.png />`;
+        console.log ('data2', data2);
         append (ul2, h22).innerText = `Current Weather in ${input.value}`;
         append (ul2, liTemp2).innerText = `Temperature: ` + main.temp;
         append (ul2, liIcon2).innerHTML = icon2;
