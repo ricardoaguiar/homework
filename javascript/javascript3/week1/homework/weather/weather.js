@@ -164,7 +164,7 @@
       append (div, ul2); //append result of weather search
     }
     fetch (
-      `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da'`;
+      `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da'`
     )
       .then (res => res.json ())
       .then (data2 => {
