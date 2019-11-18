@@ -1,4 +1,3 @@
-// document.addEventListener ('DOMContentLoaded', function (event) {
   function createNode (element) {
     return document.createElement (element);
   }
@@ -185,5 +184,3 @@
       });
   };
 
-//   console.log ('DOM fully loaded and parsed');
-// });
