@@ -1,4 +1,4 @@
-document.addEventListener ('DOMContentLoaded', function (event) {
+// document.addEventListener ('DOMContentLoaded', function (event) {
   function createNode (element) {
     return document.createElement (element);
   }
@@ -165,7 +165,7 @@ document.addEventListener ('DOMContentLoaded', function (event) {
       append (div, ul2); //append result of weather search
     }
     fetch (
-      `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da&containerid:'openweathermap-widget-12'`
+      `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=daf90bf3cb90d58f344174ca345725da'`;
     )
       .then (res => res.json ())
       .then (data2 => {
@@ -185,5 +185,5 @@ document.addEventListener ('DOMContentLoaded', function (event) {
       });
   };
 
-  console.log ('DOM fully loaded and parsed');
-});
+//   console.log ('DOM fully loaded and parsed');
+// });
