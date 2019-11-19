@@ -60,3 +60,4 @@ document.getElementById ('gifSearch').onclick = () => {
     append (giphyApp, p).innerText = 'Please enter desire number of Giphys';
   }
 };
+
