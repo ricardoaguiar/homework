@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+.gifApp {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: rgba(255, 127, 80, 0.5);
+  padding: 1rem;
+}
+#gifName, #gifSearch, #gifNum {
+  border: thin solid grey;
+  width: 50%;
+  height: 30px;
+}
+#gifNum {
+  margin-top: .5em;
+  width: 30%;
+}
+#gifSearch {
+  width: 20%;
+}
+ul li {
+  list-style: none;
+}
+img {
+  width: 50%;
+}
