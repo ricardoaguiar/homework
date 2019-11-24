@@ -7,24 +7,18 @@ function append (parent, el) {
   return parent.appendChild (el);
 }
 
-let ul = createNode ('ul');
 let div = document.getElementById('github');
+let ul = createNode ('ul');
+// append(div, ul);
+let ul2 = createNode('ul');
+const api = "https://api.github.com/search/repositories?q=user:ricardoaguiar";
 
-let ghRepo = fetch('https://api.github.com/search/repositories?q=user:ricardoaguiar')
+let ghRepo = fetch(api)
     .then(res => res.json()) 
     .then(json => {
-        console.log(json);
-        const { } = json.items;
-        console.log(name);
-        // console.log(full_name);
-
-        // json.items.forEach((items) => {
-        //     console.log(items);
-        //     let li = createNode('li');
-        //     append(ul, li);
-        //     append(div, ul);
-        //     li.innerText = items;
-
-
-    });
-// });
+        console.log('log json', json);
+        console.log(typeof json);
+        for (let i in json) {
+          console.log(i);
+        }
+    }); 
