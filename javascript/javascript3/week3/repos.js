@@ -20,5 +20,7 @@ let ghRepo = fetch(api)
         console.log(typeof json);
         for (let i in json) {
           console.log(i);
+          github += `<p>${json[i]}<p/>`
         }
-    }); 
+        document.getElementById ('github').innerHTML = github;
+      }); 
