@@ -23,7 +23,10 @@ Promise.all (
   data.forEach (e => {
     const name = e.items[0].owner.login;
     let li = document.createElement ('li');
-    li.setAttribute ('class', 'list-group-item mb-4 font-weight-medium text-lowercase');
+    li.setAttribute (
+      'class',
+      'list-group-item mb-4 font-weight-medium text-lowercase'
+    );
     append (ul, li);
     li.innerText = name + "'s repositories";
     let ul2 = createNode ('ul');
