@@ -3,22 +3,6 @@ body {
     margin: 0 auto;
     background-color: rgba(240, 240, 240, 0.5);
 }
-
-.mainCanvas {
-    width: 400px;
-    height: 300px;
-    border: solid 1px gray;
-}
-
-#btnWide {
-    background: hotpink;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: hotpink solid 1px;
-    cursor: pointer;
-}
 #github {
     max-width: 80%;
 }
