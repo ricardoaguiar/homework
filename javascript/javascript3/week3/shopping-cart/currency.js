@@ -11,7 +11,7 @@ function getRates () {
       console.log (`key: ${key}, value: ${value}`);
       //create an option for each currency
       let option = document.createElement('option');
-      //set a value for each currency
+      //set a value attribute for each option/currency
       option.setAttribute('value', `${key}`);
       option.innerText = `${key}: ${value}`;
       select.appendChild (option);
