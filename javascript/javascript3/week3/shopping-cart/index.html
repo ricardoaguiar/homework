@@ -55,12 +55,33 @@
                 <div class="currency">
                     <label>Choose a Currency</label>
                     <select id="currencies" class="custom-select custom-select-sm"></select>
+                    <div class="filters">
+                        <div class="country">
+                            <label>Ships to</label>
+                            <select>
+                                <option value="denmark">Denmark</option>
+                                <option value="sweden">Sweden</option>
+                                <option value="norway">Norway</option>
+                                <option value="germany">Germany</option>
+                                <option value="iceland">Iceland</option>
+                                <option value="england">England</option>
+                            </select>
+                        </div>
+                        <div class="currency">
+                            <label>Choose a Currency</label>
+                            <select id="currencies"></select>
+                        </div>
+                        <div class="price">
+                            <input type="range" id="start" name="volume" min="0" max="11">
+                            <label for="volume">Lower Price:</label>
+                        </div>
+                        >>>>>>> a44aa867a103e56ac0efeca42bb2cd1c847decb5
+                    </div>
+                    <div class="price">
+                        <input type="range" id="start" name="volume" min="0" max="11">
+                        <label for="volume">Lower Price:</label>
+                    </div>
                 </div>
-                <div class="price">
-                    <input type="range" id="start" name="volume" min="0" max="11">
-                    <label for="volume">Lower Price:</label>
-                </div>
-            </div>
         </section>
         <section class="products">
             <ul></ul>
