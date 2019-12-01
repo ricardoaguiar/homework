@@ -1,5 +1,17 @@
 console.log('Script loaded');
 
+const cartBtn = document.querySelector('.cart-btn');
+const closeCartBtn = document.querySelector('.close-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
+const cartDOM = document.querySelector('.cart');
+const cartOverlay = document.querySelector('.cart-overlay');
+const cartItems = document.querySelector('.cart-items');
+const cartTotal = document.querySelector('.cart-total');
+const cartContent = document.querySelector('.cart-content');
+const productDOM = document.querySelector('.products-center');
+
+const cart = [];
+
 const productList = [
   { productName: 'Dell Monitor', productPrice: 1000 },
   { productName: 'Apple Laptop', productPrice: 3000 },
@@ -53,6 +65,14 @@ class ShoppingCart {
       });
   }
 }
+// local storage
+class Storage {
+  // class for localStorage
+}
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // possibly loading all the products here after fetch.
+// });
 
 const flatscreen = new Product('flat-screen', 5000);
 console.log(flatscreen);
