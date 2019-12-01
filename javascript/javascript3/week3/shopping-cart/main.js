@@ -1,50 +1,70 @@
-console.log ('Script loaded');
+console.log('Script loaded');
 
+const productList = [
+  { productName: 'Dell Monitor', productPrice: 1000 },
+  { productName: 'Apple Laptop', productPrice: 3000 },
+  { productName: 'iPhone 11', productPrice: 500 },
+];
 
+console.log(productList);
+// debugger;
 class Product {
   constructor(name, price) {
-      this.name = name;
-      this.price = price;
+    this.name = name;
+    this.price = price;
+  }
+
+  convertCurrency() {
+    const currentPrice = this.price;
+    console.log('currency converter');
   }
 }
 
 class ShoppingCart {
   constructor(products) {
-      this.products = products;
+    this.products = products;
   }
-  
+
   addProduct(product) {
-  this.products.push(product);
-
+    this.product.push(product);
+    // return this.product;
   }
 
-  removeProduct(product) {
-      // Implement functionality here
-  }
+  removeProduct(product) {}
 
   searchProduct(productName) {
-      // Implement functionality here
+    this.productName = productName;
+    console.log('productName');
+    return productName;
   }
 
-  getTotal() {
-      // Implement functionality here
-  }
+  getTotal() {}
 
-  renderProducts() {
-      // Implement functionality here
-  }
+  renderProducts() {}
 
+  // getUser method
   getUser() {
-      // Implement functionality here
+    const user = document.getElementById('user');
+    fetch('https://jsonplaceholder.typicode.com/users/1')
+      .then(r => r.json())
+      .then(data => {
+        console.log(data.name);
+        user.innerText = `Welcome ${data.name}`;
+      });
   }
 }
 
 const flatscreen = new Product('flat-screen', 5000);
+console.log(flatscreen);
+
 const shoppingCart = new ShoppingCart([flatscreen]);
+console.log(shoppingCart);
 
+const products = new Product();
+products.convertCurrency();
 
-
-
+shoppingCart.searchProduct();
+shoppingCart.getUser();
 
 // const testProductNames = [ 'Flat Screen', 'Mobile Phone', 'Wallet', ];
 const testProductNames = [
@@ -71,62 +91,63 @@ const testProductNames = [
   },
 ];
 
-const products = getAvailableProducts ();
+/*
+const products = getAvailableProducts();
 
-const liClass = Object.keys (Object.assign ({}, ...products));
-console.log (liClass); //returns an array with the Object.keys
+const liClass = Object.keys(Object.assign({}, ...products));
+console.log(liClass); // returns an array with the Object.keys
 
 // const section = document.querySelector('.products'); //select the section tag with products class
 // console.log(section);
 
-const ulProducts = document.querySelector ('.products ul'); //select the products ul
-console.log (ulProducts);
+const ulProducts = document.querySelector('.products ul'); // select the products ul
+console.log(ulProducts);
 
 // Should add 3 li's to the ul under the products section with Flat screen, Mobile phone, Wallet text
-function renderProducts (testProductNames) {
+function renderProducts(testProductNames) {
   for (let i = 0; i < testProductNames.length; i++) {
     const shippingCountries = testProductNames[i].shipsTo;
 
-    const liProduct = document.createElement ('li'); //create a li container for each product
-    liProduct.setAttribute ('class', 'liProduct');
-    ulProducts.appendChild (liProduct); //append it to ul products
+    const liProduct = document.createElement('li'); // create a li container for each product
+    liProduct.setAttribute('class', 'liProduct');
+    ulProducts.appendChild(liProduct); // append it to ul products
 
-    ulSingleProduct = document.createElement ('ul'); //create a ul inside each li container
-    ulSingleProduct.setAttribute ('class', 'ulSingleProduct');
-    liProduct.appendChild (ulSingleProduct); //append it to the li container
+    ulSingleProduct = document.createElement('ul'); // create a ul inside each li container
+    ulSingleProduct.setAttribute('class', 'ulSingleProduct');
+    liProduct.appendChild(ulSingleProduct); // append it to the li container
 
-    const liName = document.createElement ('li'); //li for name
-    liName.setAttribute ('class', liClass[1]);
+    const liName = document.createElement('li'); // li for name
+    liName.setAttribute('class', liClass[1]);
     liName.innerText = testProductNames[i].name;
-    ulSingleProduct.appendChild (liName);
+    ulSingleProduct.appendChild(liName);
 
-    const liPrice = document.createElement ('li'); //li for price
-    liPrice.setAttribute ('class', liClass[2]);
+    const liPrice = document.createElement('li'); // li for price
+    liPrice.setAttribute('class', liClass[2]);
     liPrice.innerText = testProductNames[i].price;
-    ulSingleProduct.appendChild (liPrice);
+    ulSingleProduct.appendChild(liPrice);
 
-    const liRating = document.createElement ('li'); //li for rating
-    liRating.setAttribute ('class', liClass[3]);
+    const liRating = document.createElement('li'); // li for rating
+    liRating.setAttribute('class', liClass[3]);
     liRating.innerText = testProductNames[i].rating;
-    ulSingleProduct.appendChild (liRating);
+    ulSingleProduct.appendChild(liRating);
 
-    const liShipsTo = document.createElement ('li'); //li for the shipping
-    liShipsTo.setAttribute ('class', liClass[4]); //class shipsTo
-    ulSingleProduct.appendChild (liShipsTo); //append ship li to ul single product
+    const liShipsTo = document.createElement('li'); // li for the shipping
+    liShipsTo.setAttribute('class', liClass[4]); // class shipsTo
+    ulSingleProduct.appendChild(liShipsTo); // append ship li to ul single product
 
-    const ulShipping = document.createElement ('ul'); //create a ul inside shipsTo li
+    const ulShipping = document.createElement('ul'); // create a ul inside shipsTo li
     // const liShipping = document.createElement('li'); //create a li inside shipsTo ul
-    console.log (shippingCountries);
+    console.log(shippingCountries);
 
-    shippingCountries.forEach (element => {
-      let liCountries = document.createElement ('li');
-      liCountries.setAttribute ('class', element);
-      ulShipping.appendChild (liCountries);
+    shippingCountries.forEach(element => {
+      const liCountries = document.createElement('li');
+      liCountries.setAttribute('class', element);
+      ulShipping.appendChild(liCountries);
       liCountries.innerText = element;
     });
 
     // ulShipping.appendChild(liShipping);
-    liShipsTo.appendChild (ulShipping);
+    liShipsTo.appendChild(ulShipping);
   }
 }
 
@@ -135,15 +156,14 @@ function renderProducts (testProductNames) {
 //   .filter(p => p.name.toLoweCase().includes(name.toLoweCase()))
 //   .filter(p => {
 //     if (country) {
-//       return.shipsTo.map(c => c.toLoweCase()).includes(country.toLoweCase()); 
-//     } else {  
-//       return true;    
+//       return.shipsTo.map(c => c.toLoweCase()).includes(country.toLoweCase());
+//     } else {
+//       return true;
 //     }
 //   });
 // renderProducts(mactchingProducts);
 // }
 
-
-
 // renderProducts (testProductNames);
-renderProducts (products);
+renderProducts(products);
+*/
