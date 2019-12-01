@@ -17,7 +17,7 @@
                 <h2>Shopping Cart</h2>
                 <h4 id="user"></h4>
             </div>
-            <div class="cart-btn cart">
+            <div class="cart-btn cart-icon">
                 <span class="nav-icon">
                     <i class="fas fa-cart-plus"></i>
                 </span>
@@ -55,38 +55,31 @@
                 <div class="currency">
                     <label>Choose a Currency</label>
                     <select id="currencies" class="custom-select custom-select-sm"></select>
-                    <div class="filters">
-                        <div class="country">
-                            <label>Ships to</label>
-                            <select>
-                                <option value="denmark">Denmark</option>
-                                <option value="sweden">Sweden</option>
-                                <option value="norway">Norway</option>
-                                <option value="germany">Germany</option>
-                                <option value="iceland">Iceland</option>
-                                <option value="england">England</option>
-                            </select>
-                        </div>
-                        <div class="currency">
-                            <label>Choose a Currency</label>
-                            <select id="currencies"></select>
-                        </div>
-                        <div class="price">
-                            <input type="range" id="start" name="volume" min="0" max="11">
-                            <label for="volume">Lower Price:</label>
-                        </div>
-                    </div>
+                </div>
+                <div class="price">
+                    <input type="range" id="start" name="volume" min="0" max="11">
+                    <label for="volume">Lower Price:</label>
+                </div>
+            </div>
         </section>
         <section class="products">
             <ul></ul>
         </section>
-        <!-- <section class="cart">
-            <h2>Your shopping cart</h2>
-            <div class="total">
-                <p>Total price:<span></span></p>
-            </div>
-            <ul></ul>
-        </section> -->
+        <div class="cart-overlay">
+            <section class="cart">
+                <i class="fas fa-window-close"></i>
+                <h2>Your shopping cart</h2>
+                <div class="cart-content">
+                    <div class="cart-item">
+                        <img src="https://picsum.photos/200" alt="photo">
+                    </div>
+                </div>
+                <div class="total">
+                    <p>Total price:<span></span></p>
+                </div>
+                <ul></ul>
+            </section>
+        </div>
     </main>
     <script src="currency.js"></script>
     <script src="hyfBayHelpers.js"></script>
