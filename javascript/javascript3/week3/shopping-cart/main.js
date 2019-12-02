@@ -9,6 +9,9 @@ const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productDOM = document.querySelector('.products-center');
+const productUL = document.querySelector('section.products ul');
+const productLI = document.createElement('li');
+const p = document.createElement('p');
 
 const cart = [];
 
@@ -35,11 +38,13 @@ class Product {
 class ShoppingCart {
   constructor(products) {
     this.products = products;
+    console.log('products', products);
+    productLI.innerText = products;
+    productUL.appendChild(productLI);
   }
 
   addProduct(product) {
     this.product.push(product);
-    // return this.product;
   }
 
   removeProduct(product) {}
