@@ -172,7 +172,7 @@ section.cart {
   position: fixed;
   top: 200px;
   right: 0;
-  width: 600px;
+  width: 400px;
   /* height: 200px; */
   transition: all 0.3s linear;
   background-color: white;

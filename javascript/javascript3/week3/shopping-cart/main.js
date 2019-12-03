@@ -15,49 +15,47 @@ const p = document.createElement('p');
 
 const cart = [];
 
-const productList = [
-  { productName: 'Dell Monitor', productPrice: 1000 },
-  { productName: 'Apple Laptop', productPrice: 3000 },
-  { productName: 'iPhone 11', productPrice: 500 },
-];
-
-console.log(productList);
-// debugger;
 class Product {
   constructor(name, price) {
     this.name = name;
     this.price = price;
+    console.log(this.name, this.price);
   }
 
-  convertCurrency() {
-    const currentPrice = this.price;
-    console.log('currency converter');
-  }
+  convertCurrency() {}
 }
 
 class ShoppingCart {
   constructor(products) {
     this.products = products;
-    console.log('products', products);
-    productLI.innerText = products;
-    productUL.appendChild(productLI);
   }
 
   addProduct(product) {
     this.product.push(product);
   }
 
-  removeProduct(product) {}
-
-  searchProduct(productName) {
-    this.productName = productName;
-    console.log('productName');
-    return productName;
+  removeProduct(product) {
+    const selProduct = product;
   }
 
-  getTotal() {}
+  searchProduct() {}
 
-  renderProducts() {}
+  getTotal() {
+    const total = this.products.map(product => product.price);
+    let sum = 0;
+    for (let i = 0; i < total.length; i++) {
+      sum += total[i];
+    }
+    document.getElementById('total').innerHTML = sum;
+  }
+
+  renderProducts() {
+    this.product = product;
+    console.log('product', product);
+    productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
+    productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
+    productUL.appendChild(productLI);
+  }
 
   // getUser method
   getUser() {
@@ -80,7 +78,8 @@ class Storage {
 // });
 
 const flatscreen = new Product('flat-screen', 5000);
-console.log(flatscreen);
+const mac = new Product('mac', 3000);
+console.log(flatscreen, mac);
 
 const shoppingCart = new ShoppingCart([flatscreen]);
 console.log(shoppingCart);
@@ -115,80 +114,3 @@ const testProductNames = [
     shipsTo: ['Denmark', 'Norway', 'Finland'],
   },
 ];
-
-/*
-const products = getAvailableProducts();
-
-const liClass = Object.keys(Object.assign({}, ...products));
-console.log(liClass); // returns an array with the Object.keys
-
-// const section = document.querySelector('.products'); //select the section tag with products class
-// console.log(section);
-
-const ulProducts = document.querySelector('.products ul'); // select the products ul
-console.log(ulProducts);
-
-// Should add 3 li's to the ul under the products section with Flat screen, Mobile phone, Wallet text
-function renderProducts(testProductNames) {
-  for (let i = 0; i < testProductNames.length; i++) {
-    const shippingCountries = testProductNames[i].shipsTo;
-
-    const liProduct = document.createElement('li'); // create a li container for each product
-    liProduct.setAttribute('class', 'liProduct');
-    ulProducts.appendChild(liProduct); // append it to ul products
-
-    ulSingleProduct = document.createElement('ul'); // create a ul inside each li container
-    ulSingleProduct.setAttribute('class', 'ulSingleProduct');
-    liProduct.appendChild(ulSingleProduct); // append it to the li container
-
-    const liName = document.createElement('li'); // li for name
-    liName.setAttribute('class', liClass[1]);
-    liName.innerText = testProductNames[i].name;
-    ulSingleProduct.appendChild(liName);
-
-    const liPrice = document.createElement('li'); // li for price
-    liPrice.setAttribute('class', liClass[2]);
-    liPrice.innerText = testProductNames[i].price;
-    ulSingleProduct.appendChild(liPrice);
-
-    const liRating = document.createElement('li'); // li for rating
-    liRating.setAttribute('class', liClass[3]);
-    liRating.innerText = testProductNames[i].rating;
-    ulSingleProduct.appendChild(liRating);
-
-    const liShipsTo = document.createElement('li'); // li for the shipping
-    liShipsTo.setAttribute('class', liClass[4]); // class shipsTo
-    ulSingleProduct.appendChild(liShipsTo); // append ship li to ul single product
-
-    const ulShipping = document.createElement('ul'); // create a ul inside shipsTo li
-    // const liShipping = document.createElement('li'); //create a li inside shipsTo ul
-    console.log(shippingCountries);
-
-    shippingCountries.forEach(element => {
-      const liCountries = document.createElement('li');
-      liCountries.setAttribute('class', element);
-      ulShipping.appendChild(liCountries);
-      liCountries.innerText = element;
-    });
-
-    // ulShipping.appendChild(liShipping);
-    liShipsTo.appendChild(ulShipping);
-  }
-}
-
-// function searchProducts(name, country) {
-//   const mactchingProducts = products
-//   .filter(p => p.name.toLoweCase().includes(name.toLoweCase()))
-//   .filter(p => {
-//     if (country) {
-//       return.shipsTo.map(c => c.toLoweCase()).includes(country.toLoweCase());
-//     } else {
-//       return true;
-//     }
-//   });
-// renderProducts(mactchingProducts);
-// }
-
-// renderProducts (testProductNames);
-renderProducts(products);
-*/
