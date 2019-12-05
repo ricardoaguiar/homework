@@ -22,7 +22,10 @@ class Product {
     console.log(this.name, this.price);
   }
 
-  convertCurrency() {}
+  convertCurrency() {
+    const val = document.getElementById('value');
+    return this.price * `${value}`;
+  }
 }
 
 class ShoppingCart {
