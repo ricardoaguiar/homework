@@ -9,7 +9,7 @@ function getRates() {
       console.log(eu);
       const baseRate = document.createElement('option');
       baseRate.setAttribute('value', `${eu}`);
-      baseRate.innerText = `${eu} 1.000 - Base rate`;
+      baseRate.innerText = `${eu}: 1.000 - Base rate`;
       select.appendChild(baseRate);
       for (const [key, value] of Object.entries(rts)) {
         // console.log(`key: ${key}, value: ${value}`);
