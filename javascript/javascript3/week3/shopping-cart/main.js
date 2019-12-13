@@ -25,6 +25,7 @@ class Product {
   convertCurrency() {
     const val = document.getElementById('value');
     return this.price * `${value}`;
+    console.log(`${value}`);
   }
 }
 
