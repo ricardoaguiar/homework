@@ -1,4 +1,7 @@
 sailsTest
 .DS_Store
-javascript3/week3/shopping-cart/node_modules
 
+
+$git rm --cached javascript3/week3/shopping-cart/node_modules
+rm 'javascript3/week3/shopping-cart/node_modules'
+$git commit -m "start igonring node_modules"
