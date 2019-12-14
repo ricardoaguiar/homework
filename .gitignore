@@ -1,6 +1,3 @@
 sailsTest
 .DS_Store
-
-
-rm --cached javascript3/week3/shopping-cart/node_modules
-rm 'javascript3/week3/shopping-cart/node_modules'
+javascript3/week3/shopping-cart/node_modules
