@@ -71,7 +71,7 @@ header {
 
 .cart {
 }
-/*
+
 header .wrapper h1,
 header .wrapper h2 {
   position: absolute;
@@ -82,7 +82,7 @@ header .wrapper h2 {
 header .wrapper h2 {
   left: 125px;
 }
-*/
+
 .container {
   margin-top: 0.8em;
 }
@@ -144,7 +144,7 @@ section.products li .name {
   width: 200px;
 }
 
-/* section.cart {
+section.cart {
   position: fixed;
   bottom: 12px;
   right: 12px;
@@ -155,7 +155,7 @@ section.products li .name {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 12px;
   border-radius: 8px;
-} */
+}
 
 .section.cart-overlay {
   position: fixed;
@@ -166,14 +166,14 @@ section.products li .name {
   transition: var(--mainTransition);
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 section.cart {
   position: fixed;
   top: 200px;
   right: 0;
   width: 400px;
-  /* height: 200px; */
+  height: 400px;
   transition: all 0.3s linear;
   background-color: white;
   overflow: auto;
@@ -181,7 +181,7 @@ section.cart {
   padding: 10px;
   /* border-radius: 8px; */
   z-index: 4;
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
 }
 .section.showCart {
   transform: translateX(0);

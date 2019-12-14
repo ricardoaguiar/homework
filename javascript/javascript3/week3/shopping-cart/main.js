@@ -11,9 +11,19 @@ const cartContent = document.querySelector('.cart-content');
 const productDOM = document.querySelector('.products-center');
 const productUL = document.querySelector('section.products ul');
 const productLI = document.createElement('li');
+const productLI2 = document.createElement('li');
 const p = document.createElement('p');
 
+
 const cart = [];
+
+
+const convertedCur = document.getElementById('converted-currency');
+const conversionResult = document.createElement('p');
+convertedCur.appendChild(conversionResult);
+
+
+
 
 class Product {
   constructor(name, price) {
@@ -23,9 +33,10 @@ class Product {
   }
 
   convertCurrency() {
-    const val = document.getElementById('value');
-    return this.price * `${value}`;
-    console.log(`${value}`);
+    sel.addEventListener('change', function() {
+    conversionResult.innerText = `Converted amount: ${sel.options[sel.selectedIndex].innerText}`;
+    //console.log(sel.value, sel.options[sel.selectedIndex].innerText);
+    });
   }
 }
 
@@ -54,10 +65,9 @@ class ShoppingCart {
   }
 
   renderProducts() {
-    this.product = product;
-    console.log('product', product);
+    console.log('product', products);
     productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
-    productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
+    productLI2.innerText += `${mac.name} ${mac.price}`;
     productUL.appendChild(productLI);
   }
 
@@ -78,21 +88,20 @@ class Storage {
 }
 
 // document.addEventListener('DOMContentLoaded', () => {
-//   // possibly loading all the products here after fetch.
-// });
-
-const flatscreen = new Product('flat-screen', 5000);
-const mac = new Product('mac', 3000);
-console.log(flatscreen, mac);
-
-const shoppingCart = new ShoppingCart([flatscreen]);
-console.log(shoppingCart);
-
-const products = new Product();
-products.convertCurrency();
-
-shoppingCart.searchProduct();
-shoppingCart.getUser();
+//   });
+  const flatscreen = new Product('flat-screen', 5000);
+  const mac = new Product('mac', 3000);
+  console.log(flatscreen, mac);
+  
+  const shoppingCart = new ShoppingCart([flatscreen]);
+  console.log(shoppingCart);
+  
+  const products = new Product();
+  products.convertCurrency();
+  
+  shoppingCart.searchProduct();
+  shoppingCart.getUser();
+  shoppingCart.renderProducts();
 
 // const testProductNames = [ 'Flat Screen', 'Mobile Phone', 'Wallet', ];
 const testProductNames = [
