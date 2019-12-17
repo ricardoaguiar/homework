@@ -166,7 +166,7 @@ section.cart {
   transition: var(--mainTransition);
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 section.cart {
   position: fixed;
@@ -181,7 +181,7 @@ section.cart {
   padding: 10px;
   /* border-radius: 8px; */
   z-index: 4;
-  /* transform: translateX(100%); */
+  transform: translateX(100%);
 }
 .section.showCart {
   transform: translateX(0);

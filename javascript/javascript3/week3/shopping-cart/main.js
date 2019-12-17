@@ -14,28 +14,43 @@ const productLI = document.createElement('li');
 const productLI2 = document.createElement('li');
 const p = document.createElement('p');
 
-
 const cart = [];
-
 
 const convertedCur = document.getElementById('converted-currency');
 const conversionResult = document.createElement('p');
-convertedCur.appendChild(conversionResult);
-
-
-
+// convertedCur.appendChild(conversionResult);
 
 class Product {
   constructor(name, price) {
     this.name = name;
     this.price = price;
-    console.log(this.name, this.price);
   }
 
+getProduct() {
+   fetch('products.json')
+    .then (r => r.json())
+    .then((data)=> {
+      let prod = data.items;
+      console.log(prod); 
+      prod = prod.map(item => {
+        console.log(prod);
+        const { name, price, imgUrl } = item;
+        return { name, price, imgUrl };
+      })
+    return prod;
+      });
+    }catch (e) {
+      console.log(e);
+    }
+
+
   convertCurrency() {
+    this.sel = sel;
     sel.addEventListener('change', function() {
-    conversionResult.innerText = `Converted amount: ${sel.options[sel.selectedIndex].innerText}`;
-    //console.log(sel.value, sel.options[sel.selectedIndex].innerText);
+      conversionResult.innerText = `Converted amount: ${
+        sel.options[sel.selectedIndex].innerText
+      }`;
+       console.log(sel.value, sel.options[sel.selectedIndex].innerText);
     });
   }
 }
@@ -45,11 +60,11 @@ class ShoppingCart {
     this.products = products;
   }
 
-  addProduct(product) {
+  addProduct() {
     this.product.push(product);
   }
 
-  removeProduct(product) {
+  removeProduct() {
     const selProduct = product;
   }
 
@@ -65,7 +80,8 @@ class ShoppingCart {
   }
 
   renderProducts() {
-    console.log('product', products);
+    const result = '';
+    
     productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
     productLI2.innerText += `${mac.name} ${mac.price}`;
     productUL.appendChild(productLI);
@@ -82,48 +98,20 @@ class ShoppingCart {
       });
   }
 }
-// local storage
-class Storage {
-  // class for localStorage
-}
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   });
-  const flatscreen = new Product('flat-screen', 5000);
-  const mac = new Product('mac', 3000);
-  console.log(flatscreen, mac);
-  
-  const shoppingCart = new ShoppingCart([flatscreen]);
-  console.log(shoppingCart);
-  
-  const products = new Product();
-  products.convertCurrency();
-  
-  shoppingCart.searchProduct();
-  shoppingCart.getUser();
-  shoppingCart.renderProducts();
 
-// const testProductNames = [ 'Flat Screen', 'Mobile Phone', 'Wallet', ];
-const testProductNames = [
-  {
-    id: 1,
-    name: 'Flat Screen',
-    price: 4000,
-    rating: 4.5,
-    shipsTo: ['Denmark', 'Germany'],
-  },
-  {
-    id: 2,
-    name: 'Mobile Phone',
-    price: 3500,
-    rating: 5,
-    shipsTo: ['Denmark', 'Germany', 'USA'],
-  },
-  {
-    id: 3,
-    name: 'Wallet',
-    price: 1000,
-    rating: 4,
-    shipsTo: ['Denmark', 'Norway', 'Finland'],
-  },
-];
+document.addEventListener('DOMContentLoaded', () => {});
+const flatscreen = new Product('flat-screen', 5000);
+const mac = new Product('mac', 3000);
+console.log(flatscreen, mac);
+
+const shoppingCart = new ShoppingCart([flatscreen]);
+console.log(shoppingCart);
+
+const product = new Product();
+product.convertCurrency();
+
+shoppingCart.searchProduct();
+shoppingCart.getUser();
+shoppingCart.renderProducts();
+
