@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const footer = require('./footer');
-const contact = require('./contact/contact');
+const contact = require('../contact/contact');
 const head = require('./head');
 
 app.get('/index.html', (req, res) => {
