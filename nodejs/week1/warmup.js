@@ -1,15 +1,16 @@
-// const http = require('http');
-// const hostname = '127.0.0.1';
-// const port = 3000;
-
-// const server = http.createServer((req, res) => {
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type', 'text/plain');
-//     res.end('Hello World\n');
-// });
 
 const express = require('express');
 const app = express();
+
+app.get('/', (req, res) => {
+    res.send(`
+<body>
+        <h1>Hello, I'm Ricardo</h1>
+        <h2>a web developer in constant development</h2>
+    </body>
+    `);
+});
+
 
 class Circle {
  constructor(radius) {
@@ -17,19 +18,28 @@ class Circle {
  }
 
     getDiameter() {
-
+        return 2 * this.radius;
     }
 
-    getCircunference() {}
+    getCircumference() {
+
+        return 2*Math.PI * this.radius;
+    }
 
     getArea() {
         return Math.PI * this.radius * this.radius;
     }
-
 }
 
-// server.listen(port, hostname, () => {
-//     console.log(`Server running at http://${hostname}:${port}/`);
-// });
+const circle10 = new Circle(10);
+const circle20 = new Circle(20);
 
-app.listen(8000);
+console.log(circle10.getDiameter());
+console.log(circle20.getDiameter());
+console.log(circle10.getArea());
+console.log(circle20.getArea());
+console.log(circle10.getCircumference());
+console.log(circle20.getCircumference());
+
+
+app.listen(5000);
