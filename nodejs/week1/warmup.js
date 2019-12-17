@@ -5,8 +5,7 @@ const app = express();
 app.get('/', (req, res) => {
     res.send(`
 <body>
-        <h1>Hello, I'm Ricardo</h1>
-        <h2>a web developer in constant development</h2>
+        <h1>warmup.js</h1>
     </body>
     `);
 });
@@ -40,6 +39,7 @@ console.log(circle10.getArea());
 console.log(circle20.getArea());
 console.log(circle10.getCircumference());
 console.log(circle20.getCircumference());
+
 
 
 app.listen(5000);
