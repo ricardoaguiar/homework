@@ -11,7 +11,7 @@ app.get('/index.html', (req, res) => {
 app.get('/', (req, res) => {
     res.send(`
 ${head()}
-<body>
+    <body>
         <h1>Hello, I'm Ricardo</h1>
         <h2>a web developer in constant development</h2>
         ${contact()}
