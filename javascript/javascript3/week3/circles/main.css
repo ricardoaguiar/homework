@@ -1,0 +1,13 @@
+body {
+  line-height: 1.5;
+  margin-right: 0 auto;
+  margin-left: 0 auto;
+  background-color: rgba(240, 240, 240, 0.5);
+}
+
+#canvas {
+  margin: 5vh 5vh;
+  width: 60%;
+  border: 1px solid slategray;
+  display: block;
+}
