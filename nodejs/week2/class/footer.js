@@ -1,5 +1,5 @@
 const getFooter = footerContent => `
-    <footer>
+    <footer class="footer">
         <div>
             ${footerContent}
         </div>
