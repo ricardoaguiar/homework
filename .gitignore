@@ -2,6 +2,7 @@ sailsTest
 *.DS_Store
 javascript/javascript3/week3/shopping-cart/node_modules
 javascript/javascript3/week3/shopping-cart/fontawesome
+javascript/javascript3/week3/shopping-cart/sc-snip.js
 nodejs/week1/node_modules/
 html-css/snips
 circles.js
