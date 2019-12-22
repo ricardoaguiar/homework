@@ -21,8 +21,9 @@
                 <span class="nav-icon">
                     <i class="fas fa-cart-plus"></i>
                 </span>
-                <!-- <div class="cart-items">0</div> -->
-                <span class="cart-items badge">0</span>
+                <div class="cart-items">0
+                    <!-- <span class="cart-items badge">0</span> -->
+                </div>
             </div>
         </header>
         
@@ -63,7 +64,15 @@
             </div>
         </section>
         <section class="products container-fluid">
-            <ul></ul>
+            <h2>Products</h2>
+            <article class="product">
+                <ul>
+                    <li class="img-container"><img src="https://picsum.photos/120" alt="product" class="product-img"></li>
+                </ul>
+                <button class="bag-btn" data-id="1"><i class="fas fa-shopping-cart">add to cart</i></button>
+            <h3>sample product</h3>
+            <h4>$16.00</h4>
+            </article>
         </section>
         <div class="cart-overlay">
             <section class="cart">
@@ -98,7 +107,8 @@
         </section>
         </div>
     </main>
-    <script src="currency.js"></script>
+    <!-- <script src="class.solution.js"></script> -->
     <script src="hyfBayHelpers.js"></script>
+    <script src="currency.js"></script>
     <script src="main.js" type="module"></script>
 </body>
