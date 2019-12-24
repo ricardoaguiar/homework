@@ -11,7 +11,7 @@ const cartContent = document.querySelector(".cart-content");
 const productDOM = document.querySelector(".products-center");
 const productUL = document.querySelector("section.products ul");
 const productLI = document.createElement("li");
-const productLI2 = document.createElement("li");
+// const productLI2 = document.createElement("li");
 const p = document.createElement("p");
 
 const cart = [];
@@ -83,9 +83,8 @@ class ShoppingCart {
     // const result = "";
 
     productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
-    productLI2.innerText += `${mac.name} ${mac.price}`;
-    productUL.appendChild(productLI);
-    getAvailableProduct();
+    // productLI2.innerText += `${mac.name} ${mac.price}`;
+    // productUL.appendChild(productLI);
   }
 
   // getUser method
@@ -100,12 +99,12 @@ class ShoppingCart {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {});
-product.convertCurrency();
-shoppingCart.searchProduct();
-shoppingCart.renderProducts();
-
-shoppingCart.getUser();
+document.addEventListener("DOMContentLoaded", () => {
+  product.convertCurrency();
+  shoppingCart.searchProduct();
+  shoppingCart.renderProducts();
+  shoppingCart.getUser();
+});
 const flatscreen = new Product("flat-screen", 5000);
 const mac = new Product("mac", 3000);
 console.log(flatscreen, mac);

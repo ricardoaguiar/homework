@@ -1,14 +1,14 @@
-const testProductNames = ['Flat screen', 'computer', 'Stuff', 'Thing'];
+const testProductNames = ["Flat screen", "computer", "Stuff", "Thing"];
 
-const productsUl = document.querySelector('.products ul');
-const input = document.querySelector('.search input');
-const countrySelect = document.querySelector('.country select');
-const sortSelect = document.querySelector('.sort select');
-const cartUl = document.querySelector('.cart ul');
-const totalSpan = document.querySelector('.total span');
+const productsUl = document.querySelector(".products ul");
+const input = document.querySelector(".search input");
+const countrySelect = document.querySelector(".country select");
+const sortSelect = document.querySelector(".sort select");
+const cartUl = document.querySelector(".cart ul");
+const totalSpan = document.querySelector(".total span");
 
 function appendLi(label, rowUl) {
-  const nameLi = document.createElement('li');
+  const nameLi = document.createElement("li");
   nameLi.innerText = label;
   rowUl.appendChild(nameLi);
 }
@@ -21,25 +21,25 @@ function addProductToCart(product) {
 }
 
 function renderCart(cart) {
-  cartUl.innerHTML = '';
+  cartUl.innerHTML = "";
   let sum = 0;
   for (let i = 0; i < cart.length; i++) {
     const product = cart[i];
 
-    const rowLi = document.createElement('li');
+    const rowLi = document.createElement("li");
     cartUl.appendChild(rowLi);
 
-    const nameDiv = document.createElement('div');
-    nameDiv.classList.add('name');
+    const nameDiv = document.createElement("div");
+    nameDiv.classList.add("name");
     nameDiv.innerText = product.name;
     rowLi.appendChild(nameDiv);
 
-    const priceDiv = document.createElement('div');
-    priceDiv.classList.add('price');
+    const priceDiv = document.createElement("div");
+    priceDiv.classList.add("price");
     priceDiv.innerText = product.price;
     rowLi.appendChild(priceDiv);
 
-    rowLi.addEventListener('click', () => {
+    rowLi.addEventListener("click", () => {
       productsInCart.splice(i, 1);
       renderCart(productsInCart);
     });
@@ -50,17 +50,17 @@ function renderCart(cart) {
 }
 
 function renderProducts(products) {
-  productsUl.innerHTML = '';
+  productsUl.innerHTML = "";
   for (let i = 0; i < products.length; i++) {
     const product = products[i];
 
-    const rowLi = document.createElement('li');
+    const rowLi = document.createElement("li");
     productsUl.appendChild(rowLi);
-    const rowUl = document.createElement('ul');
+    const rowUl = document.createElement("ul");
     rowLi.appendChild(rowUl);
 
-    rowLi.addEventListener('click', () => {
-      console.log('here');
+    rowLi.addEventListener("click", () => {
+      console.log("here");
       addProductToCart(product);
     });
 
@@ -69,9 +69,9 @@ function renderProducts(products) {
     appendLi(product.price, rowUl);
     appendLi(product.rating, rowUl);
 
-    const shipsToRowLi = document.createElement('li');
+    const shipsToRowLi = document.createElement("li");
     rowUl.appendChild(shipsToRowLi);
-    const shipsToRowUl = document.createElement('ul');
+    const shipsToRowUl = document.createElement("ul");
     shipsToRowLi.appendChild(shipsToRowUl);
 
     product.shipsTo.forEach(destination => {
@@ -82,7 +82,7 @@ function renderProducts(products) {
 
 const products = getAvailableProducts();
 
-searchForProducts('', '', 'cheap');
+searchForProducts("", "", "cheap");
 
 function levenshteinDistance(a, b) {
   // Create empty edit distance matrix for all possible modifications of
@@ -119,8 +119,8 @@ function levenshteinDistance(a, b) {
   return distanceMatrix[b.length][a.length];
 }
 
-const f = 'foo';
-const b = 'foo';
+const f = "foo";
+const b = "foo";
 
 function areNamesAlmostEqual(name, input) {
   if (!input) {
@@ -171,13 +171,13 @@ function searchForProducts(name, country, sort) {
 
   if (sort) {
     switch (sort) {
-      case 'cheap':
+      case "cheap":
         matchingProducts.sort((a, b) => a.price - b.price);
         break;
-      case 'expensive':
+      case "expensive":
         matchingProducts.sort((a, b) => b.price - a.price);
         break;
-      case 'name':
+      case "name":
         matchingProducts.sort((a, b) => {
           const nameA = a.name.toUpperCase(); // ignore upper and lowercase
           const nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -199,15 +199,15 @@ function searchForProducts(name, country, sort) {
   renderProducts(matchingProducts);
 }
 
-input.addEventListener('input', () => {
+input.addEventListener("input", () => {
   searchForProducts(input.value, countrySelect.value, sortSelect.value);
 });
 
-countrySelect.addEventListener('change', () => {
+countrySelect.addEventListener("change", () => {
   searchForProducts(input.value, countrySelect.value, sortSelect.value);
 });
 
-sortSelect.addEventListener('change', () => {
+sortSelect.addEventListener("change", () => {
   searchForProducts(input.value, countrySelect.value, sortSelect.value);
 });
 

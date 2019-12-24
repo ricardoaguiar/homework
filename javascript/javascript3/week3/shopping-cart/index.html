@@ -9,9 +9,9 @@
     <title>JS3 W3 Shopping Cart</title>
 </head>
 
-<body class="container my-0">
-    <main class="flex-container">
-        <header class="flex-container p-5  bg-dark text-white">
+<body>
+    <main>
+        <header class="d-flex flex-row p-5 bg-dark text-white">
             <div class="title">
                 <h1>HyfBay</h1>
                 <h2>Shopping Cart</h2>
@@ -63,15 +63,23 @@
                 </div>
             </div>
         </section>
-        <section class="products container-fluid">
+        <section class="products">
             <h2>Products</h2>
             <article class="product">
-                <ul>
-                    <li class="img-container"><img src="https://picsum.photos/120" alt="product" class="product-img"></li>
-                </ul>
-                <button class="bag-btn" data-id="1"><i class="fas fa-shopping-cart">add to cart</i></button>
-            <h3>sample product</h3>
-            <h4>$16.00</h4>
+                <figure class="img-container"><img src="https://webhus.io/hyf/hyf-test/mallorca1.jpg" alt="product" class="product-img">
+                    <figcaption class="bag-btn" data-id="1"><i class="fas fa-shopping-cart"></i>add to cart
+                    </figcaption>
+                </figure>
+                <h3>sample product</h3>
+                <h4>$16.00</h4>
+            </article>
+            <article class="product">
+                <figure class="img-container"><img src="https://webhus.io/hyf/hyf-test/mallorca1.jpg" alt="product" class="product-img">
+                    <figcaption class="bag-btn" data-id="1"><i class="fas fa-shopping-cart"></i>add to cart
+                    </figcaption>
+                </figure>
+                <h3>sample product</h3>
+                <h4>$16.00</h4>
             </article>
         </section>
         <div class="cart-overlay">
@@ -105,7 +113,6 @@
                 <button type="button" class="btn btn-primary clear-cart">clear cart</button>
         </div>
         </section>
-        </div>
     </main>
     <!-- <script src="class.solution.js"></script> -->
     <script src="hyfBayHelpers.js"></script>
