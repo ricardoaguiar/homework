@@ -5,7 +5,12 @@
     },
     {
       "path": "/Users/ricardoaguiar/Documents/GitHub/ricardoaguiar.github.io"
+    },
+    {
+      "path": "/Users/ricardoaguiar/Documents/GitHub/aws.quotes.ggf"
     }
   ],
-  "settings": {}
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "hyf-homework"
+  }
 }
