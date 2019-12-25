@@ -187,22 +187,22 @@ section.cart {
   transition: var(--mainTransition);
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 section.cart {
   position: fixed;
-  top: 200px;
+  top: 240px;
   right: 0;
   width: 400px;
-  height: 400px;
+  height: 100vh;
   transition: all 0.3s linear;
   background-color: white;
   overflow: auto;
-  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   /* border-radius: 8px; */
   z-index: 4;
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
 }
 .section.showCart {
   transform: translateX(0);
