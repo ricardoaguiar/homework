@@ -22,4 +22,5 @@ function getRates() {
       // const text = sel.options[sel.selectedIndex].innerText;
     });
 }
+
 getRates();
