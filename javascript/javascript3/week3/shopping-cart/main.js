@@ -26,22 +26,25 @@ class Product {
     this.price = price;
   }
 
-  getProduct() {
-    fetch("products.json")
-      .then(r => r.json())
-      .then(data => {
-        let prod = data.items;
-        console.log(prod);
-        prod = prod.map(item => {
-          console.log(prod);
-          const { name, price, imgUrl } = item;
-          return { name, price, imgUrl };
-        });
-        return prod;
-      });
-  }
-  catch(e) {
-    console.log(e);
+  async getProduct() {
+    try {
+      let res = await fetch("products.json");
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // .then(r => r.json())
+    // .then(data => {
+    //   let prod = data.items;
+    //   console.log(prod);
+    //   prod = prod.map(item => {
+    //     console.log(prod);
+    //     const { name, price, imgUrl } = item;
+    //     return { name, price, imgUrl };
+    //   });
+    //   return prod;
+    // });
   }
 
   convertCurrency() {
@@ -76,15 +79,11 @@ class ShoppingCart {
     for (let i = 0; i < total.length; i++) {
       sum += total[i];
     }
-    document.getElementById("total").innerHTML = sum;
+    // document.getElementById("total").innerHTML = sum;
   }
 
   renderProducts() {
-    // const result = "";
-
-    productLI.innerText += `${flatscreen.name} ${flatscreen.price}`;
-    // productLI2.innerText += `${mac.name} ${mac.price}`;
-    // productUL.appendChild(productLI);
+    console.log(flatscreen);
   }
 
   // getUser method
@@ -99,17 +98,18 @@ class ShoppingCart {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  product.convertCurrency();
-  shoppingCart.searchProduct();
-  shoppingCart.renderProducts();
-  shoppingCart.getUser();
-});
-const flatscreen = new Product("flat-screen", 5000);
+document.addEventListener("DOMContentLoaded", () => {});
+const product = new Product();
 const mac = new Product("mac", 3000);
+const flatscreen = new Product("flat-screen", 5000);
 console.log(flatscreen, mac);
 
 const shoppingCart = new ShoppingCart([flatscreen]);
 console.log(shoppingCart);
 
-const product = new Product();
+product.getProduct().then(data => console.log(data));
+product.convertCurrency();
+shoppingCart.searchProduct();
+shoppingCart.renderProducts();
+shoppingCart.getUser();
+shoppingCart.getTotal();
