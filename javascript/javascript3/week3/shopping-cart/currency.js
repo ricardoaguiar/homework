@@ -12,7 +12,7 @@ function getRates() {
       baseRate.innerText = `${eu}: 1.000 - Base rate`;
       sel.appendChild(baseRate);
       for (const [key, value] of Object.entries(rts)) {
-        // console.log(`key: ${key}, value: ${value}`);
+        console.log(`key: ${key}, value: ${value}`);
         const option = document.createElement('option');
         option.setAttribute('value', `${value}`);
         option.innerText = `${key}: ${value}`;
@@ -22,4 +22,5 @@ function getRates() {
       // const text = sel.options[sel.selectedIndex].innerText;
     });
 }
+
 getRates();
