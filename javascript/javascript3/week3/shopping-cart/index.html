@@ -1,105 +1,133 @@
 <head>
-    <title>HyfBay</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./fontawesome/css/all.css">
-    <title>JS3 W3 Shopping Cart</title>
+  <title>HyfBay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:400,800"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./fontawesome/css/all.css" />
+  <title>JS3 W3 Shopping Cart</title>
 </head>
 
 <body>
-    <main>
-        <header class="d-flex flex-row p-5 bg-dark text-white">
-            <div class="title">
-                <h1>HyfBay</h1>
-                <h2>Shopping Cart</h2>
-                <h4 id="user"></h4>
-            </div>
-            <div class="cart-btn cart-icon">
-                <span class="nav-icon">
-                    <i class="fas fa-cart-plus"></i>
-                </span>
-                <div class="cart-items">0
-                    <!-- <span class="cart-items badge">0</span> -->
-                </div>
-            </div>
-        </header>
-        
-        <section class="table-view-control container-fluid">
-            <div class="search">
-                <label>What are you looking for?</label>
-                <input type="text" class="input-group input-group-sm mb-3">
-            </div>
-            <div class="sort">
-                <label>Sort:</label>
-                <select class="custom-select custom-select-sm">
-                    <option value="cheap">Cheap first</option>
-                    <option value="expensive">Expensive first</option>
-                    <option value="name">Name</option>
-                </select>
-            </div>
-            <div class="filters">
-                <div class="country">
-                    <label>Ships to</label>
-                    <select class="custom-select custom-select-sm">
-                        <option value="denmark">Denmark</option>
-                        <option value="sweden">Sweden</option>
-                        <option value="norway">Norway</option>
-                        <option value="germany">Germany</option>
-                        <option value="iceland">Iceland</option>
-                        <option value="england">England</option>
-                    </select>
-                </div>
-                <div class="currency">
-                    <label>Choose a Currency</label>
-                    <select id="currencies" class="custom-select custom-select-sm"></select>
-                </div>
-                <div id="converted-currency"></div>
-                <div class="price">
-                    <input type="range" id="start" name="volume" min="0" max="11">
-                    <label for="volume">Lower Price:</label>
-                </div>
-            </div>
-        </section>
-        <h2 class="products-section-title">Products</h2>
-        <section class="table-view-control products">
-        </section>
-        <div class="cart-overlay">
-            <section class="cart">
-                <span class="close-cart">
-                    <i class="fas fa-window-close"></i>
-                </span>
-                <h2>Your shopping cart</h2>
-                <div class="cart-content">
-                    <div class="cart-item">
-                        <ul class="c-item">
-                            <li><img src="https://picsum.photos/120" alt="photo"></li>
-                            <ul>
-                                <li>item 1</li>
-                                <li>9 usd</li>
-                                <li><span class="remove-item">remove</span></li>
-                            </ul>
-                            <ul>
-                                <li><i class="fas fa-chevron-up"></i></li>
-                                <li class="item-amount">1</li>
-                                <li><i class="fas fa-chevron-down"></i></li>
-                                <li></li>
-                            </ul>
-                        </ul>
-                    </div>
-                </div>
-                <div class="total">
-                    <p>Total price:<span></span></p>
-                </div>
-                <ul>ul here</ul>
-                <button type="button" class="btn btn-primary clear-cart">clear cart</button>
+  <main>
+    <header class="d-flex flex-row p-5 bg-dark text-white">
+      <div class="title">
+        <h1>HyfBay</h1>
+        <h2>Shopping Cart</h2>
+        <h4 id="user"></h4>
+      </div>
+      <div class="cart-btn cart-icon">
+        <span class="nav-icon">
+          <i class="fas fa-cart-plus"></i>
+        </span>
+        <div class="cart-items">
+          0
+          <!-- <span class="cart-items badge">0</span> -->
         </div>
-        </section>
-    </main>
-    <!-- <script src="class.solution.js"></script> -->
-    <!-- <script src="hyfBayHelpers.js"></script> -->
-    <script src="currency.js"></script>
-    <script src="main.js" type="module"></script>
+      </div>
+    </header>
+    <section class="table-view-control container-fluid">
+      <div class="search">
+        <label>What are you looking for?</label>
+        <input type="text" class="input-group input-group-sm mb-3" />
+      </div>
+      <div class="sort">
+        <label>Sort:</label>
+        <select class="custom-select custom-select-sm">
+          <option value="cheap">Cheap first</option>
+          <option value="expensive">Expensive first</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+      <div class="filters">
+        <div class="country">
+          <label>Ships to</label>
+          <select class="custom-select custom-select-sm">
+            <option value="denmark">Denmark</option>
+            <option value="sweden">Sweden</option>
+            <option value="norway">Norway</option>
+            <option value="germany">Germany</option>
+            <option value="iceland">Iceland</option>
+            <option value="england">England</option>
+          </select>
+        </div>
+        <div class="currency">
+          <label>Choose a Currency</label>
+          <select
+            id="currencies"
+            class="custom-select custom-select-sm"
+          ></select>
+        </div>
+        <div id="converted-currency"></div>
+        <div class="price">
+          <input type="range" id="start" name="volume" min="0" max="11" />
+          <label for="volume">Lower Price:</label>
+        </div>
+      </div>
+    </section>
+    <h2 class="products-section-title">Products</h2>
+    <section class="table-view-control products">
+      <!-- <article class="product">
+        <div class="img-container">
+          <img
+            src="https://picsum.photos/120"
+            alt="product"
+            class="product-img"
+          />
+        </div>
+        <button class="bag-btn">
+          <i class="fas fa-shopping-cart"></i>add to cart
+        </button>
+        <h3>${product.name}</h3>
+        <h4>$${product.price}</h4>
+      </article> -->
+    </section>
+    <section class="cart">
+      <div class="cart-overlay">
+        <span class="close-cart">
+          <i class="fas fa-window-close"></i>
+        </span>
+        <h2>Your shopping cart</h2>
+        <div class="cart-content">
+          <div class="cart-item">
+            <ul class="c-item">
+              <li><img src="https://picsum.photos/120" alt="photo" /></li>
+              <ul>
+                <li>item 1</li>
+                <li>9 usd</li>
+                <li><span class="remove-item">remove</span></li>
+              </ul>
+              <ul>
+                <li><i class="fas fa-chevron-up"></i></li>
+                <li class="item-amount">1</li>
+                <li><i class="fas fa-chevron-down"></i></li>
+                <li></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+        <div class="cart-footer">
+          <p>Total price:<span class="cart-total">0</span></p>
+        </div>
+        <ul>
+          ul here
+        </ul>
+        <button type="button" class="btn btn-primary clear-cart">
+          clear cart
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- <script src="class.solution.js"></script> -->
+  <!-- <script src="hyfBayHelpers.js"></script> -->
+  <script src="currency.js"></script>
+  <script src="main.js" type="module"></script>
 </body>
