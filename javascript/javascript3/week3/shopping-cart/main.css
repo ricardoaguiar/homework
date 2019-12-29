@@ -32,7 +32,7 @@ ul {
 }
 li {
   padding: 5px;
-  border: 1px dotted rgba(190, 190, 190, 0.5);
+  /* border: 1px dotted rgba(190, 190, 190, 0.5); */
   margin-top: 10px;
 }
 
@@ -80,9 +80,6 @@ header {
   border-radius: 20%;
   color: #ffffff;
   font-weight: bolder;
-}
-
-.cart {
 }
 
 header .wrapper h1,
@@ -179,7 +176,7 @@ section.cart {
   border-radius: 8px;
 }
 
-.section.cart-overlay {
+section.cart-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -192,20 +189,20 @@ section.cart {
 }
 section.cart {
   position: fixed;
-  top: 240px;
+  /* top: 240px; */
   right: 0;
-  width: 400px;
-  height: 100vh;
+  width: 60vw;
+  height: 100%;
   transition: all 0.3s linear;
   background-color: white;
   overflow: auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  padding: 25px;
   /* border-radius: 8px; */
   z-index: 4;
   transform: translateX(100%);
 }
-.section.showCart {
+section.showCart {
   transform: translateX(0);
 }
 .transparentBcg {
@@ -221,24 +218,44 @@ section.cart {
   letter-spacing: var(--mainSpacing);
   margin-bottom: 2rem;
 }
-.c-item {
-  display: flex;
-  font-size: 1em;
+.cart-item {
+  border: 1px #33333320 solid;
+  margin-bottom: 0.2rem;
 }
+.c-item {
+  font-size: 0.9rem;
+}
+.c-item-a {
+  grid-column: 1/2;
+}
+.c-item-b,
+.c-item-c,
+.c-item-d {
+  grid-column: 1 / span 3;
+}
+.c-item-e,
+.c-item-f,
+.c-item-g {
+  grid-column: 1/-1;
+  text-align: center;
+}
+
 section.cart ul {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  align-content: center;
 }
 
 section.cart ul > li {
-  display: flex;
   justify-content: space-between;
   padding: 6px;
 }
 
 section.cart ul > li:nth-child(odd) {
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
 }
 
 /* .section-title h2 {
@@ -287,6 +304,14 @@ section.cart ul > li:nth-child(odd) {
   transition: all 0.3s linear;
   object-fit: cover;
   /* width: 200px; */
+}
+.product-img-cart {
+  display: block;
+  /* width: 6vw; */
+  min-height: 8rem;
+  transition: all 0.3s linear;
+  object-fit: cover;
+  width: 150px;
 }
 
 .img-container:hover .product-img {

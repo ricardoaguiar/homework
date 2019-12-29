@@ -21,10 +21,10 @@ const conversionResult = document.createElement("p");
 convertedCur.appendChild(conversionResult); //display the converted result on option change
 
 class Products {
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
-  }
+  // constructor(name, price) {
+  //   this.name = name;
+  //   this.price = price;
+  // }
   async getProducts() {
     try {
       let res = await fetch("products.json");
@@ -56,14 +56,6 @@ class ShoppingCart {
 
   searchProduct() {}
 
-  getTotal() {
-    // const total = products.map(product => product.price);
-    // let sum = 0;
-    // for (let i = 0; i < total.length; i++) {
-    //   sum += total[i];
-    // }
-    // document.getElementById("total").innerHTML = sum;
-  }
   renderProducts(products) {
     console.log(products);
     let result = "";
@@ -100,14 +92,16 @@ class ShoppingCart {
         //save cart in local storage
         Storage.saveCart(cart);
         //set cart values
-        this.setCartValues(cart);
+        this.getCartTotal(cart);
         //display cart items
+        this.addToCart(cartItem);
         //show the cart
+        this.showCart();
       });
     });
   }
 
-  setCartValues(cart) {
+  getCartTotal(cart) {
     let tmpTotal = 0;
     let itemsTotal = 0;
     cart.map(item => {
@@ -116,7 +110,67 @@ class ShoppingCart {
     });
     cartTotal.innerText = parseFloat(tmpTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
-    console.log(cartTotal, cartItems);
+  }
+  addToCart(item) {
+    const div = document.createElement("div");
+    div.classList.add("cart-item");
+    div.innerHTML = `
+            <ul class="c-item">
+              <li class="c-item-a"><img src=${item.imgUrl} alt="photo" class="product-img-cart" /></li>
+              <ul>
+                <li class="c-item-b">${item.name}</li>
+                <li class="c-item-c">$${item.price}</li>
+                <li class="c-item-d"><span class="remove-item" data-id=${item.id}>remove</span></li>
+              </ul>
+              <ul>
+                <li class="c-item-e"><i class="fas fa-chevron-up" data-id=${item.id}></i></li>
+                <li class="c-item-f item-amount">${item.amount}</li>
+                <li class="c-item-g"><i class="fas fa-chevron-down" data-id=${item.id}></i></li>
+              </ul>
+            </ul>`;
+    cartContent.appendChild(div);
+  }
+  showCart() {
+    cartOverlay.classList.add("cart-overlay");
+    cartDOM.classList.add("showCart");
+  }
+  setupApp() {
+    cart = Storage.getCart();
+    this.getCartTotal(cart);
+    this.populateCart(cart);
+    cartBtn.addEventListener("click", this.showCart);
+    closeCartBtn.addEventListener("click", this.hideCart);
+  }
+  populateCart(cart) {
+    cart.forEach(item => this.addToCart(item));
+  }
+  hideCart() {
+    cartOverlay.classList.remove("cart-overlay");
+    cartDOM.classList.remove("showCart");
+  }
+  cartLogic() {
+    clearCartBtn.addEventListener("click", () => {
+      this.clearCart();
+    });
+  }
+  clearCart() {
+    let cartItems = cart.map(item => item.id);
+    cartItems.forEach(id => this.removeItem(id));
+    while (cartContent.children.lenght > 0) {
+      cartContent.removeChild(cartContent.children[0]);
+    }
+    this.hideCart();
+  }
+  removeItem(id) {
+    cart = cart.filter(item => item.id !== id);
+    this.getCartTotal(cart);
+    Storage.saveCart(cart);
+    let button = this.getSingleButton(id);
+    button.disable = false;
+    button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
+  }
+  getSingleButton(id) {
+    return buttonsDOM.find(button => button.dataset.id === id);
   }
   convertCurrency() {
     this.sel = sel;
@@ -127,7 +181,6 @@ class ShoppingCart {
       console.log(sel.value, sel.options[sel.selectedIndex].innerText);
     });
   }
-
   getUser() {
     const user = document.getElementById("user");
     fetch("https://jsonplaceholder.typicode.com/users/1")
@@ -150,6 +203,11 @@ class Storage {
   static saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
+  static getCart() {
+    return localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -159,6 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const shoppingCart = new ShoppingCart();
   const products = new Products();
+  shoppingCart.setupApp();
 
   products
     .getProducts()
@@ -168,10 +227,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(() => {
       shoppingCart.getCartButton();
+      shoppingCart.cartLogic();
     });
 
   // shoppingCart.convertCurrency();
   // shoppingCart.searchProduct();
   shoppingCart.getUser();
-  // shoppingCart.getTotal();
 });
