@@ -8,10 +8,9 @@ const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
-const productDOM = document.querySelector(".products-center");
+const productDOM = document.querySelector(".products");
 const productUL = document.querySelector("section.products ul");
 const productLI = document.createElement("li");
-// const productLI2 = document.createElement("li");
 const p = document.createElement("p");
 
 const cart = [];
@@ -20,47 +19,30 @@ const convertedCur = document.getElementById("converted-currency");
 const conversionResult = document.createElement("p");
 convertedCur.appendChild(conversionResult); //display the converted result on option change
 
-class Product {
+class Products {
   constructor(name, price) {
     this.name = name;
     this.price = price;
   }
-
-  async getProduct() {
+  async getProducts() {
     try {
       let res = await fetch("products.json");
-      return res;
+      let data = await res.json();
+      let products = data.items;
+      products = products.map(item => {
+        const { id, name, price, imgUrl } = item;
+        return { id, name, price, imgUrl };
+      });
+      return products;
     } catch (error) {
       console.log(error);
     }
-
-    // .then(r => r.json())
-    // .then(data => {
-    //   let prod = data.items;
-    //   console.log(prod);
-    //   prod = prod.map(item => {
-    //     console.log(prod);
-    //     const { name, price, imgUrl } = item;
-    //     return { name, price, imgUrl };
-    //   });
-    //   return prod;
-    // });
-  }
-
-  convertCurrency() {
-    this.sel = sel;
-    sel.addEventListener("change", function() {
-      conversionResult.innerText = `Converted amount: ${
-        sel.options[sel.selectedIndex].innerText
-      }`;
-      console.log(sel.value, sel.options[sel.selectedIndex].innerText);
-    });
   }
 }
 
 class ShoppingCart {
-  constructor(products) {
-    this.products = products;
+  constructor(cartProducts) {
+    this.cartProducts = cartProducts;
   }
 
   addProduct() {
@@ -74,19 +56,41 @@ class ShoppingCart {
   searchProduct() {}
 
   getTotal() {
-    const total = this.products.map(product => product.price);
+    const total = products.map(product => product.price);
     let sum = 0;
     for (let i = 0; i < total.length; i++) {
       sum += total[i];
     }
-    // document.getElementById("total").innerHTML = sum;
+    document.getElementById("total").innerHTML = sum;
+  }
+  renderProducts(products) {
+    console.log(products);
+    let result = "";
+    products.forEach(product => {
+      result += `
+      <article class="product">
+                <figure class="img-container"><img src=${product.imgUrl} alt="product" class="product-img">
+                    <figcaption class="bag-btn" data-id=${product.id}><i class="fas fa-shopping-cart"></i>add to cart
+                    </figcaption>
+                </figure>
+                <h3>${product.name}</h3>
+                <h4>$${product.price}</h4>
+            </article>    
+      `;
+    });
+    productDOM.innerHTML = result;
   }
 
-  renderProducts() {
-    console.log(flatscreen);
+  convertCurrency() {
+    this.sel = sel;
+    sel.addEventListener("change", function() {
+      conversionResult.innerText = `Converted amount: ${
+        sel.options[sel.selectedIndex].innerText
+      }`;
+      console.log(sel.value, sel.options[sel.selectedIndex].innerText);
+    });
   }
 
-  // getUser method
   getUser() {
     const user = document.getElementById("user");
     fetch("https://jsonplaceholder.typicode.com/users/1")
@@ -98,18 +102,22 @@ class ShoppingCart {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {});
-const product = new Product();
-const mac = new Product("mac", 3000);
-const flatscreen = new Product("flat-screen", 5000);
-console.log(flatscreen, mac);
+class Storage {}
 
-const shoppingCart = new ShoppingCart([flatscreen]);
-console.log(shoppingCart);
+document.addEventListener("DOMContentLoaded", () => {
+  const mac = new Products("mac", 3000);
+  const flatscreen = new Products("flat-screen", 5000);
+  console.log(mac, flatscreen);
 
-product.getProduct().then(data => console.log(data));
-product.convertCurrency();
-shoppingCart.searchProduct();
-shoppingCart.renderProducts();
-shoppingCart.getUser();
-shoppingCart.getTotal();
+  const shoppingCart = new ShoppingCart();
+  const products = new Products();
+
+  products
+    .getProducts()
+    .then(products => shoppingCart.renderProducts(products));
+
+  // shoppingCart.convertCurrency();
+  // shoppingCart.searchProduct();
+  shoppingCart.getUser();
+  // shoppingCart.getTotal();
+});
