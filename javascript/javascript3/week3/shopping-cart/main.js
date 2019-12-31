@@ -21,10 +21,10 @@ const conversionResult = document.createElement("p");
 convertedCur.appendChild(conversionResult); //display the converted result on option change
 
 class Products {
-  // constructor(name, price) {
-  //   this.name = name;
-  //   this.price = price;
-  // }
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
   async getProducts() {
     try {
       let res = await fetch("products.json");
@@ -115,19 +115,17 @@ class ShoppingCart {
     const div = document.createElement("div");
     div.classList.add("cart-item");
     div.innerHTML = `
-            <ul class="c-item">
-              <li class="c-item-a"><img src=${item.imgUrl} alt="photo" class="product-img-cart" /></li>
-              <ul>
-                <li class="c-item-b">${item.name}</li>
-                <li class="c-item-c">$${item.price}</li>
-                <li class="c-item-d"><span class="remove-item" data-id=${item.id}>remove</span></li>
-              </ul>
-              <ul>
-                <li class="c-item-e"><i class="fas fa-chevron-up" data-id=${item.id}></i></li>
-                <li class="c-item-f item-amount">${item.amount}</li>
-                <li class="c-item-g"><i class="fas fa-chevron-down" data-id=${item.id}></i></li>
-              </ul>
-            </ul>`;
+              <img src=${item.imgUrl} alt="photo" class="product-img-cart" />
+              <div>
+                <h4>${item.name}</h4>
+                <h5>$${item.price}<h5>
+                <span class="remove-item" data-id=${item.id}>remove</span>
+              </div>
+              <div>
+               <i class="fas fa-chevron-up" data-id=${item.id}></i>
+                <p class="c-item-f item-amount">${item.amount}</p>
+                <i class="fas fa-chevron-down" data-id=${item.id}></i>
+                </div>`;
     cartContent.appendChild(div);
   }
   showCart() {
@@ -169,6 +167,21 @@ class ShoppingCart {
         Storage.saveCart(cart);
         this.addToCart(cart);
         addAmount.nextElementSibling.innerText = tempItem.amount;
+      } else if (event.target.classList.contains("fa-chevron-down")) {
+        let lowerAmount = event.target;
+        let id = lowerAmount.dataset.id;
+        let tempItem = cart.find(item => item.id === id);
+        tempItem.amount = tempItem.amount - 1;
+        Storage.saveCart(cart);
+        this.addToCart(cart);
+        lowerAmount.previousElementSibling.innerText = tempItem.amount;
+        if (tempItem.amount > 0) {
+        } else {
+          cartContent.removeChild(
+            lowerAmount.parentElement.parentElement.parentElement.parentElement
+          );
+          this.removeChild(id);
+        }
       }
     });
   }
@@ -236,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const shoppingCart = new ShoppingCart();
   const products = new Products();
-  shoppingCart.setupApp();
+  // shoppingCart.setupApp();
 
   products
     .getProducts()
