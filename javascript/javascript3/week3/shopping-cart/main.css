@@ -130,7 +130,7 @@ section.cart {
   overflow: auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 25px;
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
 }
 section.showCart {
   transform: translateX(0);
@@ -144,7 +144,7 @@ section.cart-overlay {
   transition: var(--mainTransition);
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 .transparentBcg {
   visibility: visible;
@@ -162,6 +162,10 @@ section.cart-overlay {
 .cart-item {
   border: 1px #33333320 solid;
   margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr;
+  grid-template-rows: 1fr;
+  grid-gap: 0.2rem;
 }
 
 section.cart ul {
