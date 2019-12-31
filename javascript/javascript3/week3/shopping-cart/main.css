@@ -48,13 +48,6 @@ header {
 .title {
   flex: auto;
 }
-/* .grid-container {
-  display: grid;
-  grid-auto-flow: row;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-} */
 .nav-icon {
   font-size: 1.5rem;
 }
@@ -186,7 +179,7 @@ section.cart ul > li {
 }
 
 section.cart ul > li:nth-child(odd) {
-  /* background-color: #f0f0f0; */
+  background-color: #f0f0f0;
 }
 .products article {
   border: solid #33333320 thin;
