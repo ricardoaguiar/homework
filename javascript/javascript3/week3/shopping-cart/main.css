@@ -195,8 +195,9 @@ section.cart ul > li:nth-child(odd) {
 
 .bag-btn {
   position: absolute;
-  bottom: 30%;
+  bottom: 18%;
   right: 0;
+  width: 100%;
   background: rgb(25, 129, 220);
   border: none;
   text-transform: uppercase;
