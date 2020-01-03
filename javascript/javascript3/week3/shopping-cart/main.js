@@ -122,7 +122,7 @@ class ShoppingCart {
               <div>
                 <h4>${item.name}</h4>
                 <h5>$${item.price}<h5>
-                <span class="remove-item" data-id=${item.id}>remove</span>
+                <button type=button" class="btn btn-outline-danger btn-sm" data-id=${item.id}>remove</button>
               </div>
               <div>
                <i class="fas fa-chevron-up" data-id=${item.id}></i>
