@@ -70,7 +70,9 @@
       </div>
     </section>
     <h2 class="products-section-title">Products</h2>
+    <!-- products grid -->
     <section class="table-view-control products"></section>
+    <!-- cart -->
     <section class="cart">
       <div class="cart-overlay">
         <span class="close-cart">
@@ -79,7 +81,25 @@
         <div class="cart-footer">
           <h3>Your cart total: $<span class="cart-total">0</span></h3>
         </div>
-        <div class="cart-content"></div>
+        <div class="cart-content">
+          <div class="cart-item">
+            <img
+              src="https://picsum.photos/id/698/100.jpg"
+              alt="pic"
+              class="src"
+            />
+            <div>
+              <h4>item 1</h4>
+              <h5>$900</h5>
+              <span class="remove">remove item</span>
+            </div>
+            <div>
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
         <button type="button" class="btn btn-primary clear-cart mt-5">
           clear cart
         </button>

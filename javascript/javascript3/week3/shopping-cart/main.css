@@ -52,7 +52,7 @@ header {
   font-size: 1.5rem;
 }
 .cart-btn {
-  display: inline;
+  /* display: inline; */
   position: relative;
   cursor: pointer;
   align-self: flex-end;
@@ -119,22 +119,7 @@ section.products li .name {
   width: 200px;
 }
 
-section.cart {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 60vw;
-  height: 100%;
-  transition: all 0.3s linear;
-  background-color: white;
-  overflow: auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  padding: 25px;
-  /* transform: translateX(100%); */
-}
-section.showCart {
-  transform: translateX(0);
-}
+/*========== Cart ============t */
 section.cart-overlay {
   position: fixed;
   top: 0;
@@ -145,6 +130,24 @@ section.cart-overlay {
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
   /* visibility: hidden; */
+}
+
+section.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40vw;
+  height: 100%;
+  transition: all 0.3s linear;
+  background-color: white;
+  z-index: 3;
+  overflow: auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  /* transform: translateX(100%); */
+}
+section.showCart {
+  transform: translateX(0);
 }
 .transparentBcg {
   visibility: visible;
