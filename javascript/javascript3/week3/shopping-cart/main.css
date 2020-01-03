@@ -79,7 +79,6 @@ section.table-view-control > div,
 section.table-view-control .filters > div {
   margin-bottom: 24px;
 }
-
 .products-section-title {
   text-align: center;
 }
@@ -129,14 +128,14 @@ section.cart-overlay {
   transition: var(--mainTransition);
   background: rgb(240, 157, 81, 0.5);
   z-index: 2;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 section.cart {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
   transition: all 0.3s linear;
   background-color: white;
@@ -144,9 +143,9 @@ section.cart {
   overflow: auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 25px;
-  /* transform: translateX(100%); */
+  transform: translateX(100%);
 }
-section.show-cart {
+.show-cart {
   transform: translateX(0);
 }
 .transparentBcg {
@@ -203,6 +202,18 @@ section.show-cart {
 }
 .fa-shopping-cart {
   margin-right: 0.5rem;
+}
+.cart-item-amount,
+.item-amount {
+  text-align: center;
+  margin: auto;
+}
+.cart-item-amount {
+  padding-right: 0.6rem;
+}
+.fa-chevron-up,
+.fa-chevron-down {
+  cursor: pointer;
 }
 .img-container:hover .bag-btn {
   transform: translateX(0);

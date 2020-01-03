@@ -120,19 +120,20 @@ class ShoppingCart {
     div.innerHTML = `
               <img src=${item.imgUrl} alt="photo" class="product-img-cart" />
               <div>
-                <h4>${item.name}</h4>
+                <h5>${item.name}</h5>
                 <h5>$${item.price}<h5>
-                <button type=button" class="btn btn-outline-danger btn-sm" data-id=${item.id}>remove</button>
+                <button type=button" class="btn btn-outline-danger btn-sm remove-item" data-id=${item.id}>remove</button>
               </div>
-              <div>
+              <div class="cart-item-amount">
                <i class="fas fa-chevron-up" data-id=${item.id}></i>
                 <p class="c-item-f item-amount">${item.amount}</p>
                 <i class="fas fa-chevron-down" data-id=${item.id}></i>
                 </div>`;
     cartContent.appendChild(div);
+    console.log(cartContent);
   }
   showCart() {
-    cartOverlay.classList.add("cart-overlay");
+    cartOverlay.classList.add("transparentBcg");
     cartDOM.classList.add("showCart");
   }
   setupApp() {
