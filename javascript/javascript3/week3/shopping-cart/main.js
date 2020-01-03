@@ -56,15 +56,18 @@ class ShoppingCart {
 
   searchProduct() {}
 
+  // product section
   renderProducts(products) {
     console.log(products);
     let result = "";
     products.forEach(product => {
       result += `
       <article class="product">
-                <div class="img-container"><img src=${product.imgUrl} alt="product" class="product-img">
+                <div class="img-container">
+                <img src=${product.imgUrl} alt="product" class="product-img">
                 </div>
-                <button class="bag-btn" data-id=${product.id}><i class="fas fa-shopping-cart"></i>add to cart</button>
+                <button class="bag-btn" data-id=${product.id}>
+                <i class="fas fa-shopping-cart"></i>add to cart</button>
                 <h3>${product.name}</h3>
                 <h4>$${product.price}</h4>
             </article>    
