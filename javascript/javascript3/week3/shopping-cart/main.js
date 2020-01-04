@@ -247,8 +247,7 @@ class ShoppingCart {
         const { value } = selectCurrency.options[selectCurrency.selectedIndex];
         const text =
           selectCurrency.options[selectCurrency.selectedIndex].innerText;
-        //console.log('value >', value, 'text >', text);
-        console.log(value);
+        console.log(value, text);
       });
   }
 
