@@ -247,21 +247,20 @@ class ShoppingCart {
         const { value } = selectCurrency.options[selectCurrency.selectedIndex];
         const text =
           selectCurrency.options[selectCurrency.selectedIndex].innerText;
-        console.log(value, text);
+        console.log(value);
+        console.log(text);
       });
   }
 
   convertCurrency() {
     this.selectCurrency = selectCurrency;
     selectCurrency.addEventListener('change', () => {
-      console.log('on change event >', event.target.value);
-
+      // console.log('on change event >', event.target.value);
       conversionResult.innerText = `Convertion Rate: 1 EUR = ${
         selectCurrency.options[selectCurrency.selectedIndex].innerText
       }`;
       console.log(
-        selectCurrency.value
-        //selectCurrency.options[selectCurrency.selectedIndex].innerText
+        selectCurrency.value // currency value
       );
     });
   }
@@ -288,6 +287,7 @@ class Storage {
     return products.find(product => product.id === id);
   }
 
+  // eslint-disable-next-line no-shadow
   static saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
@@ -300,9 +300,9 @@ class Storage {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const mac = new Products('mac', 3000);
-  const flatscreen = new Products('flat-screen', 5000);
-  console.log(mac, flatscreen);
+  // const mac = new Products('mac', 3000);
+  // const flatscreen = new Products('flat-screen', 5000);
+  //  console.log(mac, flatscreen);
 
   const shoppingCart = new ShoppingCart();
   const products = new Products();
@@ -310,6 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   products
     .getProducts()
+    // eslint-disable-next-line no-shadow
     .then(products => {
       shoppingCart.renderProducts(products);
       Storage.saveProducts(products);
