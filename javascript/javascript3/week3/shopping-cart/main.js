@@ -20,10 +20,10 @@ const conversionResult = document.createElement('p');
 convertedCur.appendChild(conversionResult); //display the converted result on option change
 
 class Products {
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
-  }
+  // constructor(name, price) {
+  //   this.name = name;
+  //   this.price = price;
+  // }
 
   // eslint-disable-next-line class-methods-use-this
   async getProducts() {
@@ -57,7 +57,7 @@ class ShoppingCart {
                 <button class="bag-btn" data-id=${product.id}>
                 <i class="fas fa-shopping-cart"></i>add to cart</button>
                 <h3>${product.name}</h3>
-                <h4>$${product.price}</h4>
+                <h4>€ ${product.price}</h4>
             </article>    
       `;
     });
@@ -106,7 +106,7 @@ class ShoppingCart {
       tempTotal += item.price * item.amount;
       itemsTotal += item.amount;
     });
-    cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+    cartTotal.innerText = `€ ${parseFloat(tempTotal.toFixed(2))}`;
     cartItems.innerText = itemsTotal;
     // console.log(cartTotal, cartItems);
   }
@@ -119,7 +119,7 @@ class ShoppingCart {
               <img src=${item.imgUrl} alt="photo" class="product-img-cart" />
               <div>
                 <h5>${item.name}</h5>
-                <h5>$${item.price}</h5>
+                <h5>€ ${item.price}</h5>
                 <button type="button" class="btn btn-outline-danger btn-sm remove-item" data-id=${item.id}>remove</button>
               </div>
               <div class="cart-item-amount">
@@ -254,9 +254,10 @@ class ShoppingCart {
 
   convertCurrency() {
     this.selectCurrency = selectCurrency;
-    selectCurrency.addEventListener('change', function() {
-      console.log(event.target);
-      conversionResult.innerText = `Converted amount: ${
+    selectCurrency.addEventListener('change', () => {
+      console.log('on change event >', event.target.value);
+
+      conversionResult.innerText = `Convertion Rate: 1 EUR = ${
         selectCurrency.options[selectCurrency.selectedIndex].innerText
       }`;
       console.log(
