@@ -35,97 +35,36 @@
         <label>What are you looking for?</label>
         <input type="text" class="input-group input-group-sm mb-3" />
       </div>
-      <div class="sort">
-        <label>Sort:</label>
-        <select class="custom-select custom-select-sm">
-          <option value="cheap">Cheap first</option>
-          <option value="expensive">Expensive first</option>
-          <option value="name">Name</option>
-        </select>
+      <div class="currency">
+        <label>Choose a Currency</label>
+        <select id="currencies" class="custom-select custom-select-sm"></select>
       </div>
-      <div class="filters">
-        <div class="country">
-          <label>Ships to</label>
-          <select class="custom-select custom-select-sm">
-            <option value="denmark">Denmark</option>
-            <option value="sweden">Sweden</option>
-            <option value="norway">Norway</option>
-            <option value="germany">Germany</option>
-            <option value="iceland">Iceland</option>
-            <option value="england">England</option>
-          </select>
-        </div>
-        <div class="currency">
-          <label>Choose a Currency</label>
-          <select
-            id="currencies"
-            class="custom-select custom-select-sm"
-          ></select>
-        </div>
-        <div id="converted-currency"></div>
-        <div class="price">
-          <input type="range" id="start" name="volume" min="0" max="11" />
-          <label for="volume">Lower Price:</label>
-        </div>
-      </div>
+      <div id="converted-currency"></div>
     </section>
     <h2 class="products-section-title">Products</h2>
     <!--################### products grid ####################-->
-    <section class="table-view-control products"></section>
+
+    <!-- product-center -->
+    <section class="products table-view-control "></section>
+
+    <!--################### end products grid ####################-->
 
     <!--################### cart  ####################-->
-    <section class="cart">
-      <div class="cart-overlay">
-        <span class="close-cart">
-          <i class="fas fa-window-close"></i>
-        </span>
+    <section class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart"><i class="fas fa-window-close"></i></span>
         <div class="cart-footer">
-          <h3>Your cart total: $<span class="cart-total">0</span></h3>
+          <h3>Your Cart</h3>
+          Total: $<span class="cart-total">0</span>
         </div>
         <div class="cart-content">
-          <div class="cart-item">
-            <img
-              src="https://picsum.photos/id/698/120.jpg"
-              alt="pic"
-              class="src"
-            />
-            <div>
-              <h4>item 1</h4>
-              <h5>$900</h5>
-              <button type=button" class="btn btn-outline-danger btn-sm remove-item">remove item</button>
-            </div>
-            <div class="cart-item-amount">
-              <i class="fas fa-chevron-up"></i>
-              <p class="item-amount">1</p>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
-          <div class="cart-item">
-            <img
-              src="https://picsum.photos/id/698/120.jpg"
-              alt="pic"
-              class="src"
-            />
-            <div>
-              <h4>item 1</h4>
-              <h5>$900</h5>
-              <button type=button" class="btn btn-outline-danger btn-sm remove-item">remove item</button>
-            </div>
-            <div class="cart-item-amount">
-              <i class="fas fa-chevron-up"></i>
-              <p class="item-amount">1</p>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
+          <!-- cart item -->
         </div>
-        <button type="button" class="btn btn-primary clear-cart mt-5">
+        <button type="button" class="clear-cart btn btn-primary mt-5">
           clear cart
         </button>
       </div>
     </section>
   </main>
-  <!-- <script src="class.solution.js"></script> -->
-  <!-- <script src="hyfBayHelpers.js"></script> -->
-  <script src="currency.js"></script>
   <script src="main.js" type="module"></script>
 </body>

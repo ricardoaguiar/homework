@@ -1,23 +1,22 @@
-console.log("Script loaded");
-
-const cartBtn = document.querySelector(".cart-btn");
-const closeCartBtn = document.querySelector(".close-cart");
-const clearCartBtn = document.querySelector(".clear-cart");
-const cartDOM = document.querySelector(".cart");
-const cartOverlay = document.querySelector(".cart-overlay");
-const cartItems = document.querySelector(".cart-items");
-const cartTotal = document.querySelector(".cart-total");
-const cartContent = document.querySelector(".cart-content");
-const productDOM = document.querySelector(".products");
-const productUL = document.querySelector("section.products ul");
-const productLI = document.createElement("li");
-const p = document.createElement("p");
+const cartBtn = document.querySelector('.cart-btn');
+const closeCartBtn = document.querySelector('.close-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
+const cartDOM = document.querySelector('.cart');
+const cartOverlay = document.querySelector('.cart-overlay');
+const cartItems = document.querySelector('.cart-items');
+const cartTotal = document.querySelector('.cart-total');
+const cartContent = document.querySelector('.cart-content');
+const productDOM = document.querySelector('.products');
+const productUL = document.querySelector('section.products ul');
+const productLI = document.createElement('li');
+const p = document.createElement('p');
+const selectCurrency = document.getElementById('currencies');
 
 let cart = [];
 let buttonsDOM = [];
 
-const convertedCur = document.getElementById("converted-currency");
-const conversionResult = document.createElement("p");
+const convertedCur = document.getElementById('converted-currency');
+const conversionResult = document.createElement('p');
 convertedCur.appendChild(conversionResult); //display the converted result on option change
 
 class Products {
@@ -25,10 +24,12 @@ class Products {
     this.name = name;
     this.price = price;
   }
+
+  // eslint-disable-next-line class-methods-use-this
   async getProducts() {
     try {
-      let res = await fetch("products.json");
-      let data = await res.json();
+      const res = await fetch('products.json');
+      const data = await res.json();
       let products = data.items;
       products = products.map(item => {
         const { id, name, price, imgUrl } = item;
@@ -42,24 +43,11 @@ class Products {
 }
 
 class ShoppingCart {
-  constructor(cartProducts) {
-    this.cartProducts = cartProducts;
-  }
-
-  addProduct() {
-    this.product.push(product);
-  }
-
-  removeProduct() {
-    const selProduct = product;
-  }
-
-  searchProduct() {}
-
   // product section
+  // eslint-disable-next-line class-methods-use-this
   renderProducts(products) {
     console.log(products);
-    let result = "";
+    let result = '';
     products.forEach(product => {
       result += `
       <article class="product">
@@ -75,54 +63,64 @@ class ShoppingCart {
     });
     productDOM.innerHTML = result;
   }
+
   getCartButton() {
-    const cartButtons = [...document.querySelectorAll(".bag-btn")];
-    buttonsDOM = cartButtons;
-    cartButtons.forEach(button => {
-      let id = button.dataset.id;
-      let inCart = cart.find(item => item.id === id);
+    const buttons = [...document.querySelectorAll('.bag-btn')];
+    // console.log(buttons);
+    buttonsDOM = buttons;
+    buttons.forEach(button => {
+      const { id } = button.dataset;
+      // console.log(id);
+      const inCart = cart.find(item => item.id === id);
       if (inCart) {
-        button.innerText = "In Cart";
+        button.innerText = 'In Cart';
         button.disable = true;
       }
-      button.addEventListener("click", event => {
-        event.target.innerText = "In Cart";
-        event.target.disable = true;
-        //get products
-        let cartItem = { ...Storage.getProduct(id), amount: 1 };
-        //add product to the cart
+      button.addEventListener('click', event => {
+        // console.log(event);
+        event.target.innerText = 'In Cart';
+        event.target.disabled = true;
+        // get products
+        const cartItem = { ...Storage.getProduct(id), amount: 1 };
+        // console.log(cartItem);
+        // add product to the cart
         cart = [...cart, cartItem];
-        //save cart in local storage
+        //console.log(cart);
+        // save cart in local storage
         Storage.saveCart(cart);
-        //set cart values
-        this.getCartTotal(cart);
-        //display cart items
+        // set cart values
+        this.setCartTotal(cart);
+        // display cart items
         this.addToCart(cartItem);
-        //show the cart
+        // show the cart
         this.showCart();
       });
     });
   }
 
-  getCartTotal(cart) {
-    let tmpTotal = 0;
+  // eslint-disable-next-line class-methods-use-this
+  setCartTotal(cart) {
+    let tempTotal = 0;
     let itemsTotal = 0;
     cart.map(item => {
-      tmpTotal += item.price * item.amount;
+      tempTotal += item.price * item.amount;
       itemsTotal += item.amount;
     });
-    cartTotal.innerText = parseFloat(tmpTotal.toFixed(2));
+    cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
+    // console.log(cartTotal, cartItems);
   }
+
+  // eslint-disable-next-line class-methods-use-this
   addToCart(item) {
-    const div = document.createElement("div");
-    div.classList.add("cart-item");
+    const div = document.createElement('div');
+    div.classList.add('cart-item');
     div.innerHTML = `
               <img src=${item.imgUrl} alt="photo" class="product-img-cart" />
               <div>
                 <h5>${item.name}</h5>
-                <h5>$${item.price}<h5>
-                <button type=button" class="btn btn-outline-danger btn-sm remove-item" data-id=${item.id}>remove</button>
+                <h5>$${item.price}</h5>
+                <button type="button" class="btn btn-outline-danger btn-sm remove-item" data-id=${item.id}>remove</button>
               </div>
               <div class="cart-item-amount">
                <i class="fas fa-chevron-up" data-id=${item.id}></i>
@@ -130,96 +128,148 @@ class ShoppingCart {
                 <i class="fas fa-chevron-down" data-id=${item.id}></i>
                 </div>`;
     cartContent.appendChild(div);
-    console.log(cartContent);
+    // console.log(cartContent);
   }
+
+  // eslint-disable-next-line class-methods-use-this
   showCart() {
-    cartOverlay.classList.add("transparentBcg");
-    cartDOM.classList.add("showCart");
+    cartOverlay.classList.add('cart-visibility');
+    cartDOM.classList.add('showCart');
+    // console.log(cartDOM);
   }
+
   setupApp() {
     cart = Storage.getCart();
-    this.getCartTotal(cart);
+    this.setCartTotal(cart);
     this.populateCart(cart);
-    cartBtn.addEventListener("click", this.showCart);
-    closeCartBtn.addEventListener("click", this.hideCart);
+    cartBtn.addEventListener('click', this.showCart);
+    closeCartBtn.addEventListener('click', this.hideCart);
   }
+
   populateCart(cart) {
     cart.forEach(item => this.addToCart(item));
   }
+
+  // eslint-disable-next-line class-methods-use-this
   hideCart() {
-    cartOverlay.classList.remove("cart-overlay");
-    cartDOM.classList.remove("showCart");
+    cartOverlay.classList.remove('cart-visibility');
+    cartDOM.classList.remove('showCart');
   }
+
   cartLogic() {
-    clearCartBtn.addEventListener("click", () => {
+    clearCartBtn.addEventListener('click', () => {
       this.clearCart();
     });
-    cartContent.addEventListener("click", event => {
-      if (event.target.classList.contains("remove-item")) {
-        let removeItem = event.target;
-        let id = removeItem.dataset.id;
+    cartContent.addEventListener('click', event => {
+      // console.log(event.target);
+      if (event.target.classList.contains('remove-item')) {
+        const removeItem = event.target;
+        // console.log(removeItem);
+        const { id } = removeItem.dataset;
+        // console.log(removeItem.parentElement.parentElement);
         cartContent.removeChild(
-          removeItem.parentElement.parentElement.parentElement.parentElement
+          removeItem.parentElement.parentElement // remove cart item
         );
         this.removeItem(id);
-      } else if (event.target.classList.contains("fa-chevron-up")) {
-        let addAmount = event.target;
-        let id = addAmount.dataset.id;
-        let tempItem = cart.find(item => item.id === id);
-        tempItem.amount = tempItem.amount + 1;
-        //tempItem.amount++;
+      } else if (event.target.classList.contains('fa-chevron-up')) {
+        const addAmount = event.target;
+        const { id } = addAmount.dataset;
+        // console.log(addAmount);
+        const tempItem = cart.find(item => item.id === id);
+        tempItem.amount += 1;
         Storage.saveCart(cart);
-        this.addToCart(cart);
+        this.setCartTotal(cart);
         addAmount.nextElementSibling.innerText = tempItem.amount;
-      } else if (event.target.classList.contains("fa-chevron-down")) {
-        let lowerAmount = event.target;
-        let id = lowerAmount.dataset.id;
-        let tempItem = cart.find(item => item.id === id);
-        tempItem.amount = tempItem.amount - 1;
-        Storage.saveCart(cart);
-        this.addToCart(cart);
-        lowerAmount.previousElementSibling.innerText = tempItem.amount;
+      } else if (event.target.classList.contains('fa-chevron-down')) {
+        const lowerAmount = event.target;
+        // console.log(event.target);
+        const { id } = lowerAmount.dataset;
+        const tempItem = cart.find(item => item.id === id);
+        tempItem.amount -= 1;
         if (tempItem.amount > 0) {
+          Storage.saveCart(cart);
+          this.setCartTotal(cart);
+          lowerAmount.previousElementSibling.innerText = tempItem.amount;
         } else {
-          cartContent.removeChild(
-            lowerAmount.parentElement.parentElement.parentElement.parentElement
-          );
-          this.removeChild(id);
+          cartContent.removeChild(lowerAmount.parentElement.parentElement);
+          this.removeItem(id);
         }
       }
     });
   }
+
   clearCart() {
-    let cartItems = cart.map(item => item.id);
+    // eslint-disable-next-line no-shadow
+    const cartItems = cart.map(item => item.id);
+    // console.log(cartItems);
     cartItems.forEach(id => this.removeItem(id));
-    while (cartContent.parentElement.children.lenght > 0) {
-      cartContent.removeChild(cartContent.parentElement.children[0]);
+    // console.log(cartContent.children);
+    while (cartContent.children.length > 0) {
+      cartContent.removeChild(cartContent.children[0]);
     }
     this.hideCart();
   }
+
   removeItem(id) {
     cart = cart.filter(item => item.id !== id);
-    this.getCartTotal(cart);
+    this.setCartTotal(cart);
+    // eslint-disable-next-line no-use-before-define
     Storage.saveCart(cart);
-    let button = this.getSingleButton(id);
+    const button = this.getSingleButton(id);
     button.disable = false;
     button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
   }
+
+  // eslint-disable-next-line class-methods-use-this
   getSingleButton(id) {
     return buttonsDOM.find(button => button.dataset.id === id);
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  getRates() {
+    fetch('https://api.exchangeratesapi.io/latest/')
+      .then(res => res.json())
+      .then(data => {
+        const rts = data.rates; // assign the rates key to a variable
+        const eu = data.base;
+        // console.log(eu); // EUR
+        const baseRate = document.createElement('option');
+        baseRate.setAttribute('value', `${1}`);
+        baseRate.innerText = `${eu}: 1.000 - Base rate`;
+        selectCurrency.appendChild(baseRate);
+        for (const [key, value] of Object.entries(rts)) {
+          //  console.log(`key: ${key}, value: ${value}`);
+          const option = document.createElement('option');
+          option.setAttribute('value', `${value}`);
+          option.innerText = `${key}: ${value}`;
+          selectCurrency.appendChild(option);
+        }
+        const { value } = selectCurrency.options[selectCurrency.selectedIndex];
+        const text =
+          selectCurrency.options[selectCurrency.selectedIndex].innerText;
+        //console.log('value >', value, 'text >', text);
+        console.log(value);
+      });
+  }
+
   convertCurrency() {
-    this.sel = sel;
-    sel.addEventListener("change", function() {
+    this.selectCurrency = selectCurrency;
+    selectCurrency.addEventListener('change', function() {
+      console.log(event.target);
       conversionResult.innerText = `Converted amount: ${
-        sel.options[sel.selectedIndex].innerText
+        selectCurrency.options[selectCurrency.selectedIndex].innerText
       }`;
-      console.log(sel.value, sel.options[sel.selectedIndex].innerText);
+      console.log(
+        selectCurrency.value
+        //selectCurrency.options[selectCurrency.selectedIndex].innerText
+      );
     });
   }
+
+  // eslint-disable-next-line class-methods-use-this
   getUser() {
-    const user = document.getElementById("user");
-    fetch("https://jsonplaceholder.typicode.com/users/1")
+    const user = document.getElementById('user');
+    fetch('https://jsonplaceholder.typicode.com/users/1')
       .then(r => r.json())
       .then(data => {
         console.log(data.name);
@@ -230,30 +280,33 @@ class ShoppingCart {
 
 class Storage {
   static saveProducts(products) {
-    localStorage.setItem("products", JSON.stringify(products));
+    localStorage.setItem('products', JSON.stringify(products));
   }
+
   static getProduct(id) {
-    let products = JSON.parse(localStorage.getItem("products"));
+    const products = JSON.parse(localStorage.getItem('products'));
     return products.find(product => product.id === id);
   }
+
   static saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
+
   static getCart() {
-    return localStorage.getItem("cart")
-      ? JSON.parse(localStorage.getItem("cart"))
+    return localStorage.getItem('cart')
+      ? JSON.parse(localStorage.getItem('cart'))
       : [];
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const mac = new Products("mac", 3000);
-  const flatscreen = new Products("flat-screen", 5000);
+document.addEventListener('DOMContentLoaded', () => {
+  const mac = new Products('mac', 3000);
+  const flatscreen = new Products('flat-screen', 5000);
   console.log(mac, flatscreen);
 
   const shoppingCart = new ShoppingCart();
   const products = new Products();
-  // shoppingCart.setupApp();
+  shoppingCart.setupApp();
 
   products
     .getProducts()
@@ -266,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
       shoppingCart.cartLogic();
     });
 
-  // shoppingCart.convertCurrency();
-  // shoppingCart.searchProduct();
+  shoppingCart.convertCurrency();
+  shoppingCart.getRates();
   shoppingCart.getUser();
 });
