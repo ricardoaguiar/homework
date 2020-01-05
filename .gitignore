@@ -7,3 +7,9 @@ javascript/javascript3/week3/shopping-cart/setup-files-js-comfy-house
 nodejs/week1/node_modules/
 html-css/snips
 circles.js
+.vscode
+node_modules
+hyf.code-workspace
+index.html
+main.js
+package-lock.json
