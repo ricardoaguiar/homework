@@ -9,7 +9,6 @@ const cheapMealsRouter = require("./routes/cheap-meals.js");
 const largeMealsRouter = require("./routes/large-meals.js");
 const mealRouter = require("./routes/meal.js");
 const reservationRouter = require("./routes/reservation.js");
-``;
 
 app.get("/meals", mealsRouter);
 app.get("/cheap-meals", cheapMealsRouter);
