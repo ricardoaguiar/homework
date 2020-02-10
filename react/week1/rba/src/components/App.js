@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/App.css';
 import { TodoItems } from './ListItems';
 import { ListTitles } from './ListTitles';
-import { Deadlines } from './Deadlines';
 
 const App = () => {
   return (
