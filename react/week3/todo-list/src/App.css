@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34ad;
+  min-height: 10vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(10px + 1.5vmin);
+  color: white;
+}
+
+.content {
+  display: grid;
+  justify-content: center;
+  width: 100vw;
+  background-color: lemonchiffon;
+  border: lightcoral 1px solid;
+  padding-bottom: 10vh;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+li {
+  list-style: none;
+  font-size: medium;
+  color: black;
+  margin-left: inherit;
+  text-transform: capitalize;
+  padding: 0.5em;
+  flex: 1 1 auto;
+  border: solid 1px;
+}
+
+.list-items {
+  width: 90vw;
+  text-align: left;
+}
+
+.list-items li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3em;
+  border-radius: 0.2em;
+  border: lightcoral 1px solid;
+}
+.addTodo {
+  padding: 0.5em;
+  border-collapse: collapse;
+  border-radius: 0.2em;
+  border: lightcoral 1px solid;
+  margin: 1em;
+}
+.complete {
+  text-decoration: line-through;
+  color: grey;
+}
+.add-new {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.selDate {
+  width: 100px;
+  margin-right: 100px;
+  text-align: center;
+}
+.addTask {
+  width: 180px;
+}
+.btn {
+  width: 100px;
+  border: lightslategray 1px solid;
+  border-collapse: collapse;
+  border-radius: 0.2em;
+  margin-left: 0.3em;
+}
+.deadline {
+  margin: auto;
+}
+.task {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2fr 1fr;
+  margin: auto;
+  font-size: small;
+}
